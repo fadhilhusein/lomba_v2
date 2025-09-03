@@ -1,0 +1,16 @@
+{
+    "name": "lenovo/lomba_v2",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Lenovo\\LombaV2\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rokiere",
+            "email": "muhammad.fadhil.syahrian@gmail.com"
+        }
+    ],
+    "require": {}
+}
