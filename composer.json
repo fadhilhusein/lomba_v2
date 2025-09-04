@@ -12,5 +12,7 @@
             "email": "muhammad.fadhil.syahrian@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "delight-im/auth": "^9.0"
+    }
 }

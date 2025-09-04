@@ -1,5 +1,5 @@
 <?php
-$host = "sql12.freesqldatabase.com";
+$host = "   ";
 $dbname = "sql12797040";
 $username = "sql12797040";   // sesuaikan dengan user MySQL kamu
 $password = "sh4zQJl3vb";       // isi kalau ada password
