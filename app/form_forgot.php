@@ -24,8 +24,8 @@ unset($_SESSION['data_user']);
 
 <body class="bg-primary">
     <div id="layoutAuthentication">
-        <div id="layoutAuthentication_content">
-            <main>
+        <div class="d-flex" id="layoutAuthentication_content">
+            <main class="flex-grow-1">
                 <div class="container-xl px-4">
                     <div class="row justify-content-center">
                         <div class="col-lg-5">

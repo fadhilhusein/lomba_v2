@@ -1,7 +1,7 @@
 <?php
-    session_start();
-    $flash = $_SESSION['flash'] ?? null;
-    unset($_SESSION['flash']); // hapus biar tidak muncul terus
+session_start();
+$flash = $_SESSION['flash'] ?? null;
+unset($_SESSION['flash']); // hapus biar tidak muncul terus
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,30 +34,39 @@
                                 </div>
                                 <div class="card-body">
                                     <!-- Registration form-->
-                                    <form action="./action/register.php" method="post">
+                                    <form class="needs-validation" action="./action/register.php" method="post" novalidate>
                                         <!-- Form Row-->
                                         <div class="row gx-3">
                                             <div class="col-12">
                                                 <!-- Form Group (first name)-->
                                                 <div class="mb-3">
                                                     <label class="small mb-1" for="inputFirstName">Username</label>
-                                                    <input class="form-control" id="inputFirstName" name="username" type="text" placeholder="Enter first name" />
+                                                    <input class="form-control" id="inputFirstName" name="username" type="text" placeholder="Enter first name" required />
+                                                    <div class="invalid-feedback">
+                                                        Please choose a username.
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <!-- Form Group (email address) -->
                                         <div class="mb-3">
                                             <label class="small mb-1" for="inputEmailAddress">Tipe Pengguna</label>
-                                            <select class="form-select" aria-label="Default select example" id="tipePengguna" name="tipePengguna">
+                                            <select class="form-select" aria-label="Default select example" id="tipePengguna" name="tipePengguna" required>
                                                 <option value="" class="d-none" selected>Pilih tipe pengguna</option>
                                                 <option value="MHS">MAHASISWA</option>
                                                 <option value="UMUM">UMUM</option>
                                             </select>
+                                            <div class="invalid-feedback">
+                                                Pilih tipe pengguna.
+                                            </div>
                                         </div>
                                         <!-- Form Group (email address) -->
                                         <div class="mb-3" id="inputEmailMahasiswa">
                                             <label class="small mb-1" for="inputEmailAddress">Email Kampus</label>
-                                            <input class="form-control" id="inputEmailAddress" name="emailMahasiswa" type="email" aria-describedby="emailHelp" placeholder="Enter email address" />
+                                            <input class="form-control" id="inputEmailAddress" name="emailMahasiswa" type="email" aria-describedby="emailHelp" placeholder="Enter email address" required />
+                                            <div class="invalid-feedback">
+                                                Masukan email kampus anda.
+                                            </div>
                                         </div>
                                         <!-- Form Row    -->
                                         <div class="row gx-3">
@@ -65,19 +74,25 @@
                                                 <!-- Form Group (password)-->
                                                 <div class="mb-3">
                                                     <label class="small mb-1" for="inputPassword">Password</label>
-                                                    <input class="form-control" id="inputPassword" name="password" type="password" placeholder="Enter password" />
+                                                    <input class="form-control" id="inputPassword" name="password" type="password" placeholder="Enter password" required />
+                                                    <div class="invalid-feedback">
+                                                        Masukan password akun anda.
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <!-- Form Group (confirm password)-->
                                                 <div class="mb-3">
                                                     <label class="small mb-1" for="inputConfirmPassword">Confirm Password</label>
-                                                    <input class="form-control" id="inputConfirmPassword" name="confirmPassword" type="password" placeholder="Confirm password" />
+                                                    <input class="form-control" id="inputConfirmPassword" name="confirmPassword" type="password" placeholder="Confirm password" required />
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="alert alert-danger" role="alert">
+                                            
+                                        </div>
                                         <!-- Form Group (create account submit)-->
-                                        <button class="btn btn-primary btn-block" type="submit">Create Account</button>
+                                        <button class="btn btn-primary btn-block btn-submit" type="submit">Create Account</button>
                                     </form>
                                 </div>
                                 <div class="card-footer text-center">
@@ -106,21 +121,41 @@
     </div>
 
     <?php if ($flash): ?>
-    <script>
-        Swal.fire({
-        icon: '<?= $flash['type'] ?>',
-        title: '<?= $flash['title'] ?>',
-        text: '<?= $flash['text'] ?>'
-        })
-    </script>
+        <script>
+            Swal.fire({
+                icon: '<?= $flash['type'] ?>',
+                title: '<?= $flash['title'] ?>',
+                text: '<?= $flash['text'] ?>'
+            })
+        </script>
     <?php endif; ?>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <script>
+        (() => {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+
         $(document).ready(function() {
             $('#inputEmailMahasiswa').hide();
+            $(".alert").hide()
 
             $("#tipePengguna").change(function() {
                 var selectedValue = $(this).val();
