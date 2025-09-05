@@ -27,5 +27,5 @@ if (isset($_GET['selector'], $_GET['token'])) {
     }
 }
 
-header('Location: form_register.php');
+header('Location: form_login.php');
 exit;
