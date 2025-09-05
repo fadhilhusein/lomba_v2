@@ -1,87 +1,45 @@
-body {
-    background-color: #f5f5f5;
-}
 
-
-.filter-section {
-    padding: 1rem 0;
-    border-bottom: 1px solid #e0e0e0;
-}
-.filter-item {
-    display: flex;
-    align-items: center;
-    border: 1px solid #dcdcdc;
-    border-radius: 8px;
-    padding: 8px 12px;
-    cursor: pointer;
-    background-color: white;
-    transition: all 0.2s;
-}
-.filter-item:hover {
-    background-color: #f0f0f0;
-}
-.filter-item .icon {
-    margin-right: 8px;
-    font-size: 1.25rem;
-}
-.filter-label {
-    white-space: nowrap;
-}
-.badge-pro {
-    background-color: #e6e6ff;
-    color: #5d5dff;
-    font-weight: bold;
-}
-.badge-response {
-    background-color: #ffcccc;
-    color: #e74c3c;
-    font-weight: bold;
-}
-.card-service {
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.2s;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-.card-service:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-.card-img-top {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-}
-.card-ad {
-    border-left: 3px solid #66bb6a;
-    padding-left: 10px;
-    margin-bottom: 1rem;
-}
-.card-footer {
-    background-color: white;
-}
-.card-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-.user-info .avatar {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 8px;
-}
-.ad-by {
-    font-size: 0.8rem;
-    color: #777;
-}
-.vetter-pro-badge {
-    font-size: 0.75rem;
-    background-color: #007bff;
-    color: white;
-    padding: 2px 8px;
-    border-radius: 12px;
-}
 .rating-star {
     color: #ffb700;
 }
+
+.custom-search-container {
+            display: flex;
+            align-items: center;
+            /* Memberikan sedikit shadow untuk efek kedalaman */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+            border-radius: 50px; /* Agar ujungnya bulat */
+            background-color: white;
+            padding: 5px; /* Sedikit padding di sekitar input dan tombol */
+            margin-bottom: 20px;
+        }
+        .custom-search-input {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px; /* Bentuk input bulat */
+            outline: none; /* Hilangkan outline saat fokus */
+            flex-grow: 1; /* Agar input mengisi ruang yang tersedia */
+            font-size: 1rem;
+            color: #333;
+            background-color: transparent; /* Agar warna background dari container yang terlihat */
+        }
+        .custom-search-input::placeholder {
+            color: #aaa;
+        }
+        .custom-search-button {
+            background-color: #333; /* Warna gelap seperti di gambar */
+            color: white;
+            border: none;
+            border-radius: 50%; /* Membuat tombol menjadi lingkaran */
+            width: 45px; /* Ukuran tombol */
+            height: 45px; /* Ukuran tombol */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.2s ease;
+        }
+        .custom-search-button:hover {
+            background-color: #555; /* Efek hover */
+        }
