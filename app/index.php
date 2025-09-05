@@ -21,7 +21,7 @@
         crossorigin="anonymous"></script>
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed sidenav-toggled">
     <nav class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white"
         id="sidenavAccordion">
         <!-- Sidenav Toggle Button-->
@@ -673,76 +673,7 @@
                     </div>
 
                     <div class="row flex-nowrap horizontal-scroll-container pb-3">
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
-                            <div class="card w-100 course-card-horizontal">
-                                <img src="assets/img/bahan/logo store online.jpg" class="card-img-top" alt="Course Image">
-                                <div class="card-body">
-                                    <span class="badge bg-primary">FRONT END</span>
-                                    <h5 class="card-title mt-2">Membuat Website Toko Online Sederhana</h5>
-                                    <hr>
-                                    <div class="d-flex align-items-center">
-                                        <div class="text-content">
-                                            <h6 class="mb-0">Leonardo samsul</h6>
-                                            <small class="text-muted">Author</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
-                            <div class="card w-100 course-card-horizontal">
-                                <img src="assets/img/bahan/logo store online.jpg" class="card-img-top" alt="Course Image">
-                                <div class="card-body">
-                                    <span class="badge bg-primary">FRONT END</span>
-                                    <h5 class="card-title mt-2">Membuat Website Toko Online Sederhana</h5>
-                                    <hr>
-                                    <div class="d-flex align-items-center">
-                                        <div class="text-content">
-                                            <h6 class="mb-0">Leonardo samsul</h6>
-                                            <small class="text-muted">Author</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
-                            <div class="card w-100 course-card-horizontal">
-                                <img src="assets/img/bahan/logo store online.jpg" class="card-img-top" alt="Course Image">
-                                <div class="card-body">
-                                    <span class="badge bg-secondary">UI/UX DESIGN</span>
-                                    <h5 class="card-title mt-2">Optimizing User Experience with the Best UI/UX Design
-                                    </h5>
-                                    <hr>
-                                    <div class="d-flex align-items-center">
-
-                                        <div class="text-content">
-                                            <h6 class="mb-0">Bayu Saito</h6>
-                                            <small class="text-muted">Author</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
-                            <div class="card w-100 course-card-horizontal">
-                                <img src="assets/img/bahan/logo store online.jpg" class="card-img-top" alt="Course Image">
-                                <div class="card-body">
-                                    <span class="badge bg-info">BRANDING</span>
-                                    <h5 class="card-title mt-2">Reviving and Refreshing Company Image</h5>
-                                    <hr>
-                                    <div class="d-flex align-items-center">
-                                        <div class="text-content">
-                                            <h6 class="mb-0">Padhang Satrio</h6>
-                                            <small class="text-muted">Author</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        <?php include_once "../components/JobCard.php" ?>
                     </div>
                 </div>
                 <!-- Main page content-->
