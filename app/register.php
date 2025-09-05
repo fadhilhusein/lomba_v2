@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             $userId = $auth->register($_POST['emailMahasiswa'], $_POST['password'], $_POST['username'], function ($selector, $token) {
 
-                $verifyLink = "http://localhost/lomba_v2/app/verification.php?selector=$selector&token=$token";
+                $verifyLink = "http://localhost/lomba_v2/app/action/verification.php?selector=$selector&token=$token";
 
                 // kirim email OTP
                 $mail = new PHPMailer(true);
@@ -34,18 +34,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     Terima kasih sudah mendaftar di CampusImpact
                     Klik link berikut untuk verifikasi akun:
                     $verifyLink";
-                    
+
                     $mail->send();
+
+                    $_SESSION['data_user'] = [
+                    'username' => $_POST['username'],
+                    'email' => $_POST['emailMahasiswa'],
+                    'tipePengguna' => $_POST['tipePengguna']
+                    ];
+
                 } catch (Exception $e) {
                     error_log("Email gagal dikirim: {$mail->ErrorInfo}");
                 }
             });
-
-            $_SESSION['flash'] = [
-                'type' => 'success',
-                'title' => 'Registrasi berhasil',
-                'text'  => 'Silahkan cek email anda untuk link verifikasi!'
-            ];
         } catch (\Delight\Auth\InvalidEmailException $e) {
             $_SESSION['flash'] = ['type' => 'error', 'title' => 'Email tidak valid', 'text' => 'Silakan masukkan email yang benar'];
         } catch (\Delight\Auth\InvalidPasswordException $e) {
@@ -56,7 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['flash'] = ['type' => 'warning', 'title' => 'Terlalu banyak percobaan', 'text' => 'Coba lagi nanti setelah beberapa saat'];
         }
 
-        header('Location: form_register.php');
+        header('Location: verify.php');
         exit;
     }
 }
+

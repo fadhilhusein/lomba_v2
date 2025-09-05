@@ -2,7 +2,6 @@
 session_start();
 $flash = $_SESSION['flash'] ?? null;
 unset($_SESSION['flash']); // hapus biar tidak muncul terus
-unset($_SESSION['data_user']);
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +15,7 @@ unset($_SESSION['data_user']);
     <meta name="author" content="" />
     <title>Login - SB Admin Pro</title>
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/custom.css" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
     <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js" crossorigin="anonymous"></script>
@@ -32,34 +32,12 @@ unset($_SESSION['data_user']);
                             <!-- Basic login form-->
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header justify-content-center">
-                                    <h3 class="fw-light my-4">Login</h3>
+                                    <h3 class="fw-light my- text-center">Berhasil mendaftarkan akun!</h3>
                                 </div>
-                                <div class="card-body">
-                                    <!-- Login form-->
-                                    <form>
-                                        <!-- Form Group (email address)-->
-                                        <div class="mb-3">
-                                            <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                            <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter email address" />
-                                        </div>
-                                        <!-- Form Group (password)-->
-                                        <div class="mb-3">
-                                            <label class="small mb-1" for="inputPassword">Password</label>
-                                            <input class="form-control" id="inputPassword" type="password" placeholder="Enter password" />
-                                        </div>
-                                        <!-- Form Group (remember password checkbox)-->
-                                        <div class="mb-3">
-                                            <div class="form-check">
-                                                <input class="form-check-input" id="rememberPasswordCheck" type="checkbox" value="" />
-                                                <label class="form-check-label" for="rememberPasswordCheck">Remember password</label>
-                                            </div>
-                                        </div>
-                                        <!-- Form Group (login box)-->
-                                        <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <a class="small" href="auth-password-basic.html">Forgot Password?</a>
-                                            <a class="btn btn-primary" href="dashboard-1.html">Login</a>
-                                        </div>
-                                    </form>
+                                <div class="card-body d-flex justify-content-center flex-column">
+                                    <div class="d-flex justify-content-center mb-3"><i style="width:40px; height:40px;" data-feather="check-circle"></i></div>
+                                    <p class="text-center">Silahkan cek email untuk verifikasi email anda!</p>
+                                    <button class="btn btn-primary">Resend email verification</button>
                                 </div>
                                 <div class="card-footer text-center">
                                     <div class="small"><a href="form_register.php">Need an account? Sign up!</a></div>
@@ -85,16 +63,6 @@ unset($_SESSION['data_user']);
             </footer>
         </div>
     </div>
-
-    <?php if ($flash): ?>
-        <script>
-            Swal.fire({
-                icon: '<?= $flash['type'] ?>',
-                title: '<?= $flash['title'] ?>',
-                text: '<?= $flash['text'] ?>'
-            })
-        </script>
-    <?php endif; ?>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

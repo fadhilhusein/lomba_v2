@@ -1,103 +1,102 @@
-  /* tambahan css dari daffa */
-  
+/* tambahan css dari daffa */
+
 .card-daffa {
-    display: flex; 
-    flex-direction: column; 
-    border-radius: 30px  30px 30px 30px;
-    width: 600px;
-    height: 252px;
-    overflow: hidden; 
-    
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px 30px 30px 30px;
+  width: 600px;
+  height: 252px;
+  overflow: hidden;
 }
-.card-body-daffa{
-    background-color: #847cd7;
-    flex-grow: 1;
-    padding: 24px; 
+.card-body-daffa {
+  background-color: #847cd7;
+  flex-grow: 1;
+  padding: 24px;
 }
 
-.card-text-daffa{
-    line-height: 1.8;
-    margin: 10px 0px 0px 0px; 
-    font-size: 50px;
-    color: #000000;
-    
+.card-text-daffa {
+  line-height: 1.8;
+  margin: 10px 0px 0px 0px;
+  font-size: 50px;
+  color: #000000;
 }
 
 .rounded-pill-search {
   border-radius: 75px; /* Sesuaikan nilai ini */
 }
 .purple-text {
-    color: #6a0dad; /* Ganti dengan kode warna ungu yang Anda inginkan */
+  color: #6a0dad; /* Ganti dengan kode warna ungu yang Anda inginkan */
 }
 .w-85-custom {
   width: 85%;
 }
 /* Mengatur gaya untuk kartu kursus */
 .course-card {
-    background-color: #f8f9fa; /* Warna latar belakang abu-abu muda */
-    border: none; /* Menghilangkan border default Bootstrap */
-    border-radius: 1rem; /* Membulatkan sudut kartu */
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05); /* Menambahkan bayangan lembut */
+  background-color: #f8f9fa; /* Warna latar belakang abu-abu muda */
+  border: none; /* Menghilangkan border default Bootstrap */
+  border-radius: 1rem; /* Membulatkan sudut kartu */
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05); /* Menambahkan bayangan lembut */
 }
 
 /* Mengatur padding dan layout untuk isi kartu */
 .course-card-body {
-    padding: 1.5rem; /* Menambahkan padding di dalam body card */
+  padding: 1.5rem; /* Menambahkan padding di dalam body card */
 }
 
 /* Container untuk ikon agar memiliki latar belakang dan border radius */
 .icon-container {
-    background-color: #e9ecef; /* Warna latar belakang abu-abu lebih gelap */
-    border-radius: 50%; /* Membuat latar belakang ikon menjadi lingkaran */
-    padding: 0.75rem; /* Padding di sekitar ikon */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #343a40; /* Warna ikon */
-    font-size: 1.2rem;
+  background-color: #e9ecef; /* Warna latar belakang abu-abu lebih gelap */
+  border-radius: 50%; /* Membuat latar belakang ikon menjadi lingkaran */
+  padding: 0.75rem; /* Padding di sekitar ikon */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #343a40; /* Warna ikon */
+  font-size: 1.2rem;
 }
 
 /* Gaya untuk judul kursus */
 .course-card h6 {
-    margin-bottom: 0;
-    font-weight: 600;
+  margin-bottom: 0;
+  font-weight: 600;
 }
 /* Menghilangkan scrollbar default di browser */
 .horizontal-scroll-container::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /* Menyembunyikan scrollbar untuk Firefox, IE, dan Edge */
 .horizontal-scroll-container {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Mengatur gaya kartu horizontal */
 .course-card-horizontal {
-    border-radius: 1rem;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s ease-in-out;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease-in-out;
 }
 
 .course-card-horizontal:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .course-card-horizontal .card-img-top {
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-    height: 150px; /* Sesuaikan tinggi gambar jika perlu */
-    object-fit: cover;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  height: 150px; /* Sesuaikan tinggi gambar jika perlu */
+  object-fit: cover;
 }
 
 .course-card-horizontal .badge {
-    border-radius: 1rem;
-    padding: 0.5rem 0.75rem;
+  border-radius: 1rem;
+  padding: 0.5rem 0.75rem;
 }
 
 .course-card-horizontal .card-body hr {
-    margin: 1rem 0;
+  margin: 1rem 0;
 }
 
 /* tambahan csss dari daffa */
+

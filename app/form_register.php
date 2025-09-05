@@ -81,7 +81,7 @@
                                     </form>
                                 </div>
                                 <div class="card-footer text-center">
-                                    <div class="small"><a href="auth-login-basic.html">Have an account? Go to login</a></div>
+                                    <div class="small"><a href="form_login.php">Have an account? Go to login</a></div>
                                 </div>
                             </div>
                         </div>

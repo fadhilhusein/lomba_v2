@@ -1,7 +1,7 @@
 <?php
 session_start();
-require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . "/config/db.php";
+require __DIR__ . '/../../vendor/autoload.php';
+require __DIR__ . "/../config/db.php";
 
 if (isset($_GET['selector'], $_GET['token'])) {
     try {
@@ -27,5 +27,5 @@ if (isset($_GET['selector'], $_GET['token'])) {
     }
 }
 
-header('Location: form_login.php');
+header('Location: ../form_login.php');
 exit;
