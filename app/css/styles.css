@@ -17087,7 +17087,7 @@ body {
   box-shadow: 0 0.15rem 1.75rem 0 rgba(33, 40, 50, 0.15);
 }
 .card .card-header {
-  font-weight: 500;
+  font-weight: 700;
 }
 .card:not([class*=bg-]) .card-header {
   color: #0061f2;

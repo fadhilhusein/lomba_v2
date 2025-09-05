@@ -1,8 +1,16 @@
 <?php
-$host = "sql12.freesqldatabase.com";
-$dbname = "sql12797040";
-$username = "sql12797040";   // sesuaikan dengan user MySQL kamu
-$password = "sh4zQJl3vb";       // isi kalau ada password
+
+use Dotenv\Dotenv;
+
+require __DIR__ . "/../../vendor/autoload.php";
+
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$host = $_ENV['DB_HOST'];
+$dbname = $_ENV['DB_NAME'];
+$username = $_ENV['DB_USER'];   // sesuaikan dengan user MySQL kamu
+$password = $_ENV['DB_PASS'];   // isi kalau ada password
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
@@ -12,4 +20,7 @@ try {
 } catch (PDOException $e) {
     die("Koneksi gagal: " . $e->getMessage());
 }
+
+// Init auth
+$auth = new \Delight\Auth\Auth($pdo);
 ?>
