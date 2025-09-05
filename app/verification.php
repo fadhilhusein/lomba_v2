@@ -1,0 +1,1 @@
+<h1>Registrasi berhasil! Silakan cek email untuk OTP.</h1>
