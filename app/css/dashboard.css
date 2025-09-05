@@ -1,0 +1,27 @@
+ body {
+     background-color: #f0f2f5;
+ }
+
+ .container {
+     margin-top: 2rem;
+ }
+
+ .table-custom-header {
+     background-color: #7257e9;
+     color: white;
+     font-weight: 600;
+ }
+
+ .btn-custom-add {
+     font-weight: 600;
+
+
+ }
+
+ .btn-custom-edit {
+     font-weight: 600;
+ }
+
+ .btn-custom-delete {
+     font-weight: 600;
+ }
