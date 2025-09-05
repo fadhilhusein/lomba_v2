@@ -37,7 +37,9 @@ unset($_SESSION['flash']); // hapus biar tidak muncul terus
                                 <div class="card-body d-flex justify-content-center flex-column">
                                     <div class="d-flex justify-content-center mb-3"><i style="width:40px; height:40px;" data-feather="check-circle"></i></div>
                                     <p class="text-center">Silahkan cek email untuk verifikasi email anda!</p>
-                                    <button class="btn btn-primary">Resend email verification</button>
+                                    <form id="resendEmailForm" class="w-100 d-flex justify-content-center" action="action/resendverification.php" method="post">
+                                        <button class="btn btn-primary btn-resend-verification" type="submit">Resend email verification</button>
+                                    </form>
                                 </div>
                                 <div class="card-footer text-center">
                                     <div class="small"><a href="form_register.php">Need an account? Sign up!</a></div>
@@ -64,9 +66,38 @@ unset($_SESSION['flash']); // hapus biar tidak muncul terus
         </div>
     </div>
 
+    <?php if ($flash): ?>
+        <script>
+            Swal.fire({
+                icon: '<?= $flash['type'] ?>',
+                title: '<?= $flash['title'] ?>',
+                text: '<?= $flash['text'] ?>'
+            })
+        </script>
+    <?php endif; ?>
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            let btn = $(".btn-resend-verification")
+            let countdown = 30;
+            $(".btn-resend-verification").prop('disabled', true).text(`Tunggu ${countdown}s`);
+
+            let timer = setInterval(function() {
+                countdown--
+                if (countdown < 0) {
+                    clearInterval(timer)
+                    $(".btn-resend-verification").prop('disabled', false).text('Resend email verification');
+                } else {
+                    $(".btn-resend-verification").text(`Tunggu ${countdown}s`);
+                }
+            }, 1000)
+        })
+
+    </script>
 </body>
 
 </html>

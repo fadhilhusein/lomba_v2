@@ -36,16 +36,16 @@ unset($_SESSION['data_user']);
                                 </div>
                                 <div class="card-body">
                                     <!-- Login form-->
-                                    <form>
+                                    <form action="action/login.php" method="post">
                                         <!-- Form Group (email address)-->
                                         <div class="mb-3">
                                             <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                            <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter email address" />
+                                            <input class="form-control" id="inputEmailAddress" type="email" name="email" placeholder="Enter email address" />
                                         </div>
                                         <!-- Form Group (password)-->
                                         <div class="mb-3">
                                             <label class="small mb-1" for="inputPassword">Password</label>
-                                            <input class="form-control" id="inputPassword" type="password" placeholder="Enter password" />
+                                            <input class="form-control" id="inputPassword" type="password" name="password" placeholder="Enter password" />
                                         </div>
                                         <!-- Form Group (remember password checkbox)-->
                                         <div class="mb-3">
@@ -57,7 +57,7 @@ unset($_SESSION['data_user']);
                                         <!-- Form Group (login box)-->
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <a class="small" href="auth-password-basic.html">Forgot Password?</a>
-                                            <a class="btn btn-primary" href="dashboard-1.html">Login</a>
+                                            <button class="btn btn-primary" type="submit">Login</button>
                                         </div>
                                     </form>
                                 </div>

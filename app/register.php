@@ -47,6 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     error_log("Email gagal dikirim: {$mail->ErrorInfo}");
                 }
             });
+
+            header('Location: verify.php');
+            exit;
         } catch (\Delight\Auth\InvalidEmailException $e) {
             $_SESSION['flash'] = ['type' => 'error', 'title' => 'Email tidak valid', 'text' => 'Silakan masukkan email yang benar'];
         } catch (\Delight\Auth\InvalidPasswordException $e) {
@@ -56,9 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } catch (\Delight\Auth\TooManyRequestsException $e) {
             $_SESSION['flash'] = ['type' => 'warning', 'title' => 'Terlalu banyak percobaan', 'text' => 'Coba lagi nanti setelah beberapa saat'];
         }
-
-        header('Location: verify.php');
-        exit;
     }
 }
 
