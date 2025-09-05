@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="card-body">
                                     <!-- Registration form-->
-                                    <form action="register.php" method="post">
+                                    <form action="./action/register.php" method="post">
                                         <!-- Form Row-->
                                         <div class="row gx-3">
                                             <div class="col-12">

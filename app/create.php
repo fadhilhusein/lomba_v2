@@ -1,5 +1,8 @@
 <?php
-include "config/db.php"
+include "config/db.php";
+include "libs/php/auth.php";
+
+loginState();
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +23,7 @@ include "config/db.php"
         src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"
         crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="nav-fixed sidenav-toggled">
@@ -31,110 +34,110 @@ include "config/db.php"
             <main>
 
                 <!-- Main page content-->
-               <div class="form-card">
-    <div class="icon-plus">
-        <i class="fas fa-plus"></i>
-    </div>
-    <h2 class="title">Tambah Data Baru</h2>
-    <p class="subtitle">Masukkan informasi data yang akan ditambahkan</p>
+                <div class="form-card">
+                    <div class="icon-plus">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <h2 class="title">Tambah Data Baru</h2>
+                    <p class="subtitle">Masukkan informasi data yang akan ditambahkan</p>
 
-    <form id="dataForm">
-        <div class="form-group">
-            <label for="tagline">Tagline</label>
-            <input type="text" id="tagline" placeholder="Masukkan tagline yang menarik...">
-            <p class="error-message" id="tagline-error">Tagline harus diisi</p>
-        </div>
+                    <form id="dataForm">
+                        <div class="form-group">
+                            <label for="tagline">Tagline</label>
+                            <input type="text" id="tagline" placeholder="Masukkan tagline yang menarik...">
+                            <p class="error-message" id="tagline-error">Tagline harus diisi</p>
+                        </div>
 
-        <div class="form-group">
-            <label for="judul">Judul</label>
-            <input type="text" id="judul" placeholder="Masukkan judul konten...">
-            <p class="error-message" id="judul-error">Judul harus diisi</p>
-        </div>
+                        <div class="form-group">
+                            <label for="judul">Judul</label>
+                            <input type="text" id="judul" placeholder="Masukkan judul konten...">
+                            <p class="error-message" id="judul-error">Judul harus diisi</p>
+                        </div>
 
-        <div class="form-group">
-            <label for="author">Author</label>
-            <input type="text" id="author" placeholder="Masukkan nama author...">
-            <p class="error-message" id="author-error">Author harus diisi</p>
-        </div>
-        
-        <button type="submit" class="submit-button">
-            <i class="fas fa-plus"></i> Tambah Data
-        </button>
-    </form>
-</div>
+                        <div class="form-group">
+                            <label for="author">Author</label>
+                            <input type="text" id="author" placeholder="Masukkan nama author...">
+                            <p class="error-message" id="author-error">Author harus diisi</p>
+                        </div>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+                        <button type="submit" class="submit-button">
+                            <i class="fas fa-plus"></i> Tambah Data
+                        </button>
+                    </form>
+                </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('dataForm');
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    form.addEventListener('submit', function(event) {
-        // Mencegah form untuk dikirim secara default
-        event.preventDefault();
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const form = document.getElementById('dataForm');
 
-        let isValid = true;
-        const inputTagline = document.getElementById('tagline');
-        const inputJudul = document.getElementById('judul');
-        const inputAuthor = document.getElementById('author');
-        
-        // Sembunyikan semua pesan error terlebih dahulu
-        document.querySelectorAll('.error-message').forEach(el => {
-            el.style.display = 'none';
-        });
+                        form.addEventListener('submit', function(event) {
+                            // Mencegah form untuk dikirim secara default
+                            event.preventDefault();
 
-        // Validasi input Tagline
-        if (inputTagline.value.trim() === '') {
-            document.getElementById('tagline-error').style.display = 'block';
-            isValid = false;
-        }
+                            let isValid = true;
+                            const inputTagline = document.getElementById('tagline');
+                            const inputJudul = document.getElementById('judul');
+                            const inputAuthor = document.getElementById('author');
 
-        // Validasi input Judul
-        if (inputJudul.value.trim() === '') {
-            document.getElementById('judul-error').style.display = 'block';
-            isValid = false;
-        }
+                            // Sembunyikan semua pesan error terlebih dahulu
+                            document.querySelectorAll('.error-message').forEach(el => {
+                                el.style.display = 'none';
+                            });
 
-        // Validasi input Author
-        if (inputAuthor.value.trim() === '') {
-            document.getElementById('author-error').style.display = 'block';
-            isValid = false;
-        }
+                            // Validasi input Tagline
+                            if (inputTagline.value.trim() === '') {
+                                document.getElementById('tagline-error').style.display = 'block';
+                                isValid = false;
+                            }
 
-        // Jika semua input valid
-        if (isValid) {
-            Swal.fire({
-                title: 'Data berhasil ditambahkan!',
-                text: 'Formulir Anda telah dikirim.',
-                icon: 'success',
-                confirmButtonText: 'OK',
-                customClass: {
-                    confirmButton: 'btn btn-primary'
-                },
-                buttonsStyling: false
-            }).then(() => {
-                // Opsional: Setelah SweetAlert ditutup, reset form
-                form.reset();
-            });
-        } else {
-            Swal.fire({
-                title: 'Gagal!',
-                text: 'Harap lengkapi semua kolom yang kosong.',
-                icon: 'error',
-                confirmButtonText: 'OK',
-                customClass: {
-                    confirmButton: 'btn btn-danger'
-                },
-                buttonsStyling: false
-            });
-        }
-    });
-});
-</script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
-    <script src="js/scripts.js"></script>
+                            // Validasi input Judul
+                            if (inputJudul.value.trim() === '') {
+                                document.getElementById('judul-error').style.display = 'block';
+                                isValid = false;
+                            }
+
+                            // Validasi input Author
+                            if (inputAuthor.value.trim() === '') {
+                                document.getElementById('author-error').style.display = 'block';
+                                isValid = false;
+                            }
+
+                            // Jika semua input valid
+                            if (isValid) {
+                                Swal.fire({
+                                    title: 'Data berhasil ditambahkan!',
+                                    text: 'Formulir Anda telah dikirim.',
+                                    icon: 'success',
+                                    confirmButtonText: 'OK',
+                                    customClass: {
+                                        confirmButton: 'btn btn-primary'
+                                    },
+                                    buttonsStyling: false
+                                }).then(() => {
+                                    // Opsional: Setelah SweetAlert ditutup, reset form
+                                    form.reset();
+                                });
+                            } else {
+                                Swal.fire({
+                                    title: 'Gagal!',
+                                    text: 'Harap lengkapi semua kolom yang kosong.',
+                                    icon: 'error',
+                                    confirmButtonText: 'OK',
+                                    customClass: {
+                                        confirmButton: 'btn btn-danger'
+                                    },
+                                    buttonsStyling: false
+                                });
+                            }
+                        });
+                    });
+                </script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+                    crossorigin="anonymous"></script>
+                <script src="js/scripts.js"></script>
 </body>
 
 </html>

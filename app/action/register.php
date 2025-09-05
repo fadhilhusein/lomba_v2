@@ -1,6 +1,6 @@
 <?php
 session_start();
-require __DIR__ . "/config/db.php";
+require __DIR__ . "/../config/db.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             });
 
-            header('Location: verify.php');
+            header('Location: ../verify.php');
             exit;
         } catch (\Delight\Auth\InvalidEmailException $e) {
             $_SESSION['flash'] = ['type' => 'error', 'title' => 'Email tidak valid', 'text' => 'Silakan masukkan email yang benar'];

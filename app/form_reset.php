@@ -3,6 +3,10 @@ session_start();
 $flash = $_SESSION['flash'] ?? null;
 unset($_SESSION['flash']); // hapus biar tidak muncul terus
 unset($_SESSION['data_user']);
+if (!isset($_GET['selector'])) {
+    header("Location: form_login.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>

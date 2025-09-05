@@ -1,5 +1,8 @@
 <?php
-include "config/db.php"
+include "config/db.php";
+include "libs/php/auth.php";
+
+loginState();
 ?>
 
 <!DOCTYPE html>

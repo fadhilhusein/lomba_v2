@@ -1,7 +1,10 @@
-<?php 
-    session_start();
-    include "config/db.php";
-    unset($_SESSION['flash']);
+<?php
+session_start();
+include "config/db.php";
+unset($_SESSION['flash']);
+include "libs/php/auth.php";
+
+loginState();
 ?>
 
 <!DOCTYPE html>
@@ -104,7 +107,7 @@
                 </div>
                 <!-- Main page content-->
                 <div class="container-xl px-4">
-                    
+
                 </div>
             </main>
             <footer class="footer-admin mt-auto footer-light">
