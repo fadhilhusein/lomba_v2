@@ -43,9 +43,15 @@ loginState();
 
                     <form id="dataForm">
                         <div class="form-group">
-                            <label for="tagline">Tagline</label>
-                            <input type="text" id="tagline" placeholder="Masukkan tagline yang menarik...">
-                            <p class="error-message" id="tagline-error">Tagline harus diisi</p>
+                                <label for="tagline">Tagline</label>
+                                <select id="tagline" name="tagline" class="form-control">
+                                        <option value="">Pilih Tagline</option>
+                                        <option value="Web Development">Web Development</option>
+                                        <option value="UI/UX">UI/UX</option>
+                                        <option value="Design">Design</option>
+                                        <option value="Copy Writing">Copy Writing</option>
+                                    </select>
+                                <p class="error-message" id="tagline-error">Tagline harus diisi</p>
                         </div>
 
                         <div class="form-group">

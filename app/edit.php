@@ -42,10 +42,16 @@ loginState();
 
                             <form id="dataForm">
                                 <div class="form-group">
-                                    <label for="tagline">Tagline</label>
-                                    <input type="text" id="tagline" placeholder="Masukkan tagline yang menarik...">
-                                    <p class="error-message" id="tagline-error">Tagline harus diisi</p>
-                                </div>
+                                <label for="tagline">Tagline</label>
+                                <select id="tagline" name="tagline" class="form-control">
+                                        <option value="">Pilih Tagline</option>
+                                        <option value="Web Development">Web Development</option>
+                                        <option value="UI/UX">UI/UX</option>
+                                        <option value="Design">Design</option>
+                                        <option value="Copy Writing">Copy Writing</option>
+                                    </select>
+                                <p class="error-message" id="tagline-error">Tagline harus diisi</p>
+                        </div>
 
                                 <div class="form-group">
                                     <label for="judul">Judul</label>
@@ -84,6 +90,77 @@ loginState();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('dataForm');
+
+    form.addEventListener('submit', function(event) {
+        // Mencegah form untuk dikirim secara default
+        event.preventDefault();
+
+        let isValid = true;
+        const inputTagline = document.getElementById('tagline');
+        const inputJudul = document.getElementById('judul');
+        const inputAuthor = document.getElementById('author');
+        
+        // Sembunyikan semua pesan error terlebih dahulu
+        document.querySelectorAll('.error-message').forEach(el => {
+            el.style.display = 'none';
+        });
+
+        // Validasi input Tagline
+        if (inputTagline.value.trim() === '') {
+            document.getElementById('tagline-error').style.display = 'block';
+            isValid = false;
+        }
+
+        // Validasi input Judul
+        if (inputJudul.value.trim() === '') {
+            document.getElementById('judul-error').style.display = 'block';
+            isValid = false;
+        }
+
+        // Validasi input Author
+        if (inputAuthor.value.trim() === '') {
+            document.getElementById('author-error').style.display = 'block';
+            isValid = false;
+        }
+
+        // Jika semua input valid
+        if (isValid) {
+            Swal.fire({
+                title: 'Berhasil!',
+                text: 'Data Anda telah berhasil diperbarui.', // Pesan sukses yang disesuaikan
+                icon: 'success',
+                confirmButtonText: 'OK',
+                customClass: {
+                    confirmButton: 'btn btn-primary'
+                },
+                buttonsStyling: false
+            }).then(() => {
+                // Di sini Anda bisa menambahkan kode AJAX untuk mengirim data ke server
+                // Misalnya:
+                // form.submit(); // Mengirim form jika diperlukan
+                // Atau, mengalihkan pengguna ke halaman lain
+                // window.location.href = 'halaman-tabel.php';
+            });
+        } else {
+            // Pesan error jika validasi gagal
+            Swal.fire({
+                title: 'Gagal!',
+                text: 'Harap lengkapi semua kolom yang kosong.',
+                icon: 'error',
+                confirmButtonText: 'OK',
+                customClass: {
+                    confirmButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            });
+        }
+    });
+});
+</script>
 </body>
 
 </html>

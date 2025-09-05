@@ -121,3 +121,44 @@ body {
   height: 20px;
   color: #ffffff;
 }
+/* Di dalam file CSS Anda */
+.button-group-tagline {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Jarak antar tombol */
+}
+
+.btn-tagline {
+    text-align: center;
+    padding: 12px 20px;
+    border-radius: 50px; /* Bentuk kapsul */
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn-tagline.web-dev {
+    background-color: #00bcd4; /* Biru muda */
+}
+
+.btn-tagline.ui-ux {
+    background-color: #673ab7; /* Ungu */
+}
+
+.btn-tagline.design {
+    background-color: #ffc107; /* Oranye */
+}
+
+.btn-tagline.copy-writing {
+    background-color: #f44336; /* Merah */
+}
+
+.btn-tagline.active {
+    border: 3px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-tagline:hover {
+    transform: scale(1.05); /* Efek hover kecil */
+}

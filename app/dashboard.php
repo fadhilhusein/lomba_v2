@@ -69,7 +69,7 @@ loginState();
                                             <div class="badge bg-primary text-white rounded-pill">front-End</div>
                                         </td>
                                         <td>
-                                            <button class="btn btn-datatable btn-icon btn-transparent-dark me-2"><i class="fa-solid fa-pencil"></i></button>
+                                            <a href="edit.php" class="btn btn-datatable btn-icon btn-transparent-dark me-2"><i class="fa-solid fa-pencil"></i></a>
                                             <button class="btn btn-datatable btn-icon btn-transparent-dark delete-btn"><i class="fa-regular fa-trash-can"></i></button>
                                         </td>
                                     </tr>
@@ -81,7 +81,7 @@ loginState();
                                             <div class="badge bg-primary text-white rounded-pill">front-End</div>
                                         </td>
                                         <td>
-                                            <button class="btn btn-datatable btn-icon btn-transparent-dark me-2"><i class="fa-solid fa-pencil"></i></button>
+                                            <a href="edit.php" class="btn btn-datatable btn-icon btn-transparent-dark me-2"><i class="fa-solid fa-pencil"></i></a>
                                             <button class="btn btn-datatable btn-icon btn-transparent-dark delete-btn"><i class="fa-regular fa-trash-can"></i></button>
                                         </td>
                                     </tr>
@@ -93,7 +93,7 @@ loginState();
                                             <div class="badge text-white rounded-pill" style="background-color: #6a1a97;">UI/UX</div>
                                         </td>
                                         <td>
-                                            <button class="btn btn-datatable btn-icon btn-transparent-dark me-2"><i class="fa-solid fa-pencil"></i></button>
+                                            <a href="edit.php" class="btn btn-datatable btn-icon btn-transparent-dark me-2"><i class="fa-solid fa-pencil"></i></a>
                                             <button class="btn btn-datatable btn-icon btn-transparent-dark delete-btn"><i class="fa-regular fa-trash-can"></i></button>
                                         </td>
                                     </tr>
@@ -110,37 +110,38 @@ loginState();
 
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
-    const table = document.getElementById('datatablesSimple');
+                    const table = document.getElementById('datatablesSimple');
 
-    table.addEventListener('click', function(event) {
-        // Cek apakah elemen yang diklik adalah tombol dengan kelas 'delete-btn'
-        const targetButton = event.target.closest('.delete-btn');
+                    table.addEventListener('click', function(event) {
+                        // Cek apakah elemen yang diklik adalah tombol dengan kelas 'delete-btn'
+                        const targetButton = event.target.closest('.delete-btn');
 
-        if (targetButton) {
-            Swal.fire({
-                title: 'Apakah kamu yakin?',
-                text: "Anda tidak akan dapat mengembalikan ini!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#d33',
-                cancelButtonColor: '#3085d6',
-                confirmButtonText: 'Ya, hapus!',
-                cancelButtonText: 'Batal'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire(
-                        'Dihapus!',
-                        'File Anda telah dihapus.',
-                        'success'
-                    );
-                    // Tambahkan kode AJAX di sini untuk menghapus data dari database
-                }
-            });
-        }
-    });
-});
+                        if (targetButton) {
+                            Swal.fire({
+                                title: 'Apakah kamu yakin?',
+                                text: "Anda tidak akan dapat mengembalikan ini!",
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonColor: '#d33',
+                                cancelButtonColor: '#3085d6',
+                                confirmButtonText: 'Ya, hapus!',
+                                cancelButtonText: 'Batal'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    Swal.fire(
+                                        'Dihapus!',
+                                        'File Anda telah dihapus.',
+                                        'success'
+                                    );
+                                    // Tambahkan kode AJAX di sini untuk menghapus data dari database
+                                }
+                            });
+                        }
+                    });
+                });
             </script>
         </div>
     </div>
 </body>
+
 </html>
