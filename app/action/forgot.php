@@ -3,14 +3,40 @@ session_start();
 require __DIR__ . '/../../vendor/autoload.php';
 require __DIR__ . "/../config/db.php";
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         $auth->forgotPassword($_POST['email'], function ($selector, $token) {
             $link = 'http://localhost/lomba_v2/app/reset.php?selector=' . urlencode($selector) . '&token=' . urlencode($token);
-
+            
             // kirim email ke user (gunakan PHPMailer)
-            // contoh sederhana
-            mail($_POST['email'], 'Reset Password', "Klik link berikut untuk reset password: $link");
+            $mail = new PHPMailer(true);
+            try {
+                $email = $_POST['email'];
+
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'muhammad.fadhil.syahrian@gmail.com';
+                $mail->Password = $_ENV['EMAIL_PASS']; // gunakan App Password Gmail
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                $mail->Port = 587;
+
+                $mail->setFrom('muhammad.fadhil.syahrian@gmail.com', 'CampusImpact');
+                $mail->addAddress($email);
+                $mail->isHTML(true);
+                $mail->Subject = 'Resend Verifikasi Email';
+                $mail->Body = "Halo {$_SESSION['username']},
+                Kamu meminta link verifikasi baru.
+                Klik link berikut untuk verifikasi akun
+                $link";
+
+                $mail->send();
+            } catch (Exception $e) {
+                error_log("Email gagal dikirim: {$mail->ErrorInfo}");
+            }
         });
 
         $_SESSION['flash'] = [
@@ -38,6 +64,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ];
     }
 
-    header('Location: ../forgot.php');
+    header('Location: ../form_forgot.php');
     exit;
 }

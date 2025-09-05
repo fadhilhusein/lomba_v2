@@ -45,5 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'text'  => 'Terlalu banyak percobaan login. Coba lagi nanti.!'
         ];
     }
+
+    header('Location: ../form_login.php');
+    exit;
 }
 ?>

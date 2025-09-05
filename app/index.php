@@ -1,5 +1,7 @@
 <?php 
-    include "config/db.php"
+    session_start();
+    include "config/db.php";
+    unset($_SESSION['flash']);
 ?>
 
 <!DOCTYPE html>
