@@ -38,11 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $mail->send();
 
                     $_SESSION['data_user'] = [
-                    'username' => $_POST['username'],
-                    'email' => $_POST['emailMahasiswa'],
-                    'tipePengguna' => $_POST['tipePengguna']
+                        'username' => $_POST['username'],
+                        'email' => $_POST['emailMahasiswa'],
+                        'tipePengguna' => $_POST['tipePengguna']
                     ];
-
                 } catch (Exception $e) {
                     error_log("Email gagal dikirim: {$mail->ErrorInfo}");
                 }
@@ -59,6 +58,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } catch (\Delight\Auth\TooManyRequestsException $e) {
             $_SESSION['flash'] = ['type' => 'warning', 'title' => 'Terlalu banyak percobaan', 'text' => 'Coba lagi nanti setelah beberapa saat'];
         }
+
+        header('Location: ../form_register.php');
+        exit;
     }
 }
-

@@ -9,7 +9,7 @@ use PHPMailer\PHPMailer\Exception;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         $auth->forgotPassword($_POST['email'], function ($selector, $token) {
-            $link = 'http://localhost/lomba_v2/app/reset.php?selector=' . urlencode($selector) . '&token=' . urlencode($token);
+            $link = 'http://localhost/lomba_v2/app/form_reset.php?selector=' . urlencode($selector) . '&token=' . urlencode($token);
             
             // kirim email ke user (gunakan PHPMailer)
             $mail = new PHPMailer(true);
@@ -27,10 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $mail->setFrom('muhammad.fadhil.syahrian@gmail.com', 'CampusImpact');
                 $mail->addAddress($email);
                 $mail->isHTML(true);
-                $mail->Subject = 'Resend Verifikasi Email';
+                $mail->Subject = 'Reset password email';
                 $mail->Body = "Halo {$_SESSION['username']},
-                Kamu meminta link verifikasi baru.
-                Klik link berikut untuk verifikasi akun
+                Kamu meminta link untuk reset password.
+                Klik link berikut untuk reset password akun kamu
                 $link";
 
                 $mail->send();

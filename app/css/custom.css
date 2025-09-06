@@ -140,3 +140,18 @@
     transform: scale(1.05); /* Efek hover kecil */
 }
 
+/* Punya Fadhil */
+.image-login {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.login-page {
+  height: calc(100vh - 5rem);
+}
+
+.radius-end {
+  overflow: hidden;
+  border-radius: 0 0 0 30px;
+}
