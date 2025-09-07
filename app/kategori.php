@@ -3,6 +3,9 @@ include "config/db.php";
 include "libs/php/auth.php";
 
 loginState();
+
+$username = $auth->getUsername();
+$email = $auth->getEmail();
 ?>
 
 <!DOCTYPE html>

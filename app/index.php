@@ -2,9 +2,13 @@
 session_start();
 include "config/db.php";
 unset($_SESSION['flash']);
-include "libs/php/auth.php";
 
+include "libs/php/auth.php";
 loginState();
+
+$username = $auth->getUsername();
+$email = $auth->getEmail();
+
 ?>
 
 <!DOCTYPE html>

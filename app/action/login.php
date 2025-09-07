@@ -5,8 +5,15 @@ require __DIR__ . "/../config/db.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
+        // Check remember me
+        $remember = isset($_POST['rememberMe']);
+
         // login pakai email/username + password
-        $auth->login($_POST['email'], $_POST['password']);
+        if ($remember) {
+            $auth->login($_POST['email'], $_POST['password'], 60 * 60 * 24 * 24 * 7);
+        } else {
+            $auth->login($_POST['email'], $_POST['password']);
+        }
 
         // redirect kalau sukses
         $_SESSION['flash'] = [

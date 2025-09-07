@@ -23,18 +23,18 @@
                 <div class="sidenav-menu-heading">Core</div>
                 <!-- Sidenav Accordion (Dashboard)-->
                 <a class="nav-link" href="dashboard.php">
-                        <div class="nav-link-icon"><i data-feather="activity"></i></div>
-                        Dashboards
+                    <div class="nav-link-icon"><i data-feather="activity"></i></div>
+                    Dashboards
                 </a>
                 <a class="nav-link" href="create.php">
-                        <div class="nav-link-icon"><i data-feather="plus-circle"></i></div>
-                        Tambah Job
+                    <div class="nav-link-icon"><i data-feather="plus-circle"></i></div>
+                    Tambah Job
                 </a>
                 <a class="nav-link" href="kategori.php">
-                        <div class="nav-link-icon"><i data-feather="grid"></i></div>
-                        Kategori
+                    <div class="nav-link-icon"><i data-feather="grid"></i></div>
+                    Kategori
                 </a>
-                
+
                 <!-- Sidenav Heading (Custom)-->
                 <div class="sidenav-menu-heading">Custom</div>
                 <!-- Sidenav Accordion (Pages)-->
@@ -342,7 +342,7 @@
         <div class="sidenav-footer">
             <div class="sidenav-footer-content">
                 <div class="sidenav-footer-subtitle">Logged in as:</div>
-                <div class="sidenav-footer-title">Valerie Luna</div>
+                <div class="sidenav-footer-title"><?= $username ?></div>
             </div>
         </div>
     </nav>

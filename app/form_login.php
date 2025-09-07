@@ -53,7 +53,7 @@ unset($_SESSION['data_user']);
                             <!-- Form Group (remember password checkbox)-->
                             <div class="mb-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" id="rememberPasswordCheck" type="checkbox" value="" />
+                                    <input class="form-check-input" name="rememberMe" id="rememberPasswordCheck" type="checkbox" value="" />
                                     <label class="form-check-label" for="rememberPasswordCheck">Remember password</label>
                                 </div>
                             </div>
