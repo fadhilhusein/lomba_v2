@@ -3,13 +3,12 @@
 .card-daffa {
   display: flex;
   flex-direction: column;
-  border-radius: 30px 30px 30px 30px;
+  border-radius: 20px;
   width: 600px;
   height: 252px;
   overflow: hidden;
 }
 .card-body-daffa {
-  background-color: #847cd7;
   flex-grow: 1;
   padding: 24px;
 }
@@ -154,4 +153,9 @@
 .radius-end {
   overflow: hidden;
   border-radius: 0 0 0 30px;
+}
+
+.icon-large {
+  width: 4rem;
+  height: 4rem;
 }

@@ -18826,6 +18826,11 @@ body {
 .icons-org-create .icon-users path:first-of-type {
   color: #0061f2;
 }
+
+.icons-org-create .icon-users-2 circle,
+.icons-org-create .icon-users-2 path:first-of-type {
+  color: #0061f2;
+}
 .icons-org-create .icon-users path {
   color: rgba(0, 97, 242, 0.35);
 }

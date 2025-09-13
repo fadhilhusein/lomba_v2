@@ -38,7 +38,7 @@ $email = $auth->getEmail();
             <main>
                 <!--card ads -daffa -->
                 <div class="container d-flex">
-                    <div class="card-daffa mt-5 w-100">
+                    <div class="card-daffa bg-primary bg-gradient mt-5 w-100">
                         <div class="card-body-daffa d-flex justify-content-center align-items-center">
                             <p class="card-text-daffa text-white ">Lorem ipsum</p>
                         </div>

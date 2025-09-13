@@ -1,5 +1,8 @@
 <?php
 session_start();
+include "libs/php/auth.php";
+loginState(true);
+
 $flash = $_SESSION['flash'] ?? null;
 unset($_SESSION['flash']); // hapus biar tidak muncul terus
 ?>
@@ -27,12 +30,51 @@ unset($_SESSION['flash']); // hapus biar tidak muncul terus
         <div class="row login-page" id="layoutAuthentication_content">
             <main class="col-12 p-0">
                 <div class="row g-0 h-100">
-                    <div class="col-md-6 d-flex flex-column justify-content-center py-5 py-md-0 px-5" id="main">
+                    <div class="col-md-6 d-flex flex-column justify-content-md-center py-5 py-md-0 px-5" id="main">
                         <div class="form-header mb-4 d-md-flex justify-content-between">
                             <h1 class="fw-bolder"><span class="purple-text">Campus</span>Impact</h1>
                             <h2>Sign Up</h2>
                         </div>
-                        <form class="needs-validation" action="action/register.php" method="post" novalidate>
+                        <div id="user_selection" class="row h-25">
+                            <div class="row gap-2 gap-md-0 col-md-12 mb-3">
+                                <div class="col-md-6">
+                                    <div id="select_mahasiswa" class="bg-primary bg-gradient py-4 d-flex flex-column justify-content-center align-items-center gap-3 w-100 h-100 rounded-2">
+                                        <div>
+                                            <i class="icon-large text-white" data-feather="user"></i>
+                                        </div>
+                                        <h3 class="text-white fw-bold">Mahasiswa</h3>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div id="select_umum" class="bg-secondary bg-gradient py-4 d-flex flex-column justify-content-center align-items-center gap-3 w-100 h-100 rounded-2">
+                                        <div>
+                                            <i class="icon-large text-white" data-feather="users"></i>
+                                        </div>
+                                        <h3 class="text-white fw-bold">Umum/UMKM</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php if ($flash): ?>
+                                <?php if ($flash['type'] == 'success'): ?>
+                                    <div class="alert alert-success" role="alert">
+                                        <?= $flash['text'] ?>
+                                    </div>
+                                <?php elseif ($flash['type'] == 'error'): ?>
+                                    <div class="alert alert-danger" role="alert">
+                                        <?= $flash['text'] ?>
+                                    </div>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                            <div class="row col-md-12">
+                                <div class="col-12">
+                                    <a class="small" href="form_login.php">Have an account? Login</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Register mahasiswa -->
+                        <form id="register_mahasiswa" class="needs-validation" action="action/register.php" method="post" novalidate>
+                            <input type="text" name="role" value="mahasiswa" class="d-none">
                             <!-- Form Row-->
                             <div class="row gx-3">
                                 <div class="col-12">
@@ -41,27 +83,15 @@ unset($_SESSION['flash']); // hapus biar tidak muncul terus
                                         <label class="small mb-1" for="inputFirstName">Username</label>
                                         <input class="form-control" id="inputFirstName" name="username" type="text" placeholder="Enter first name" required />
                                         <div class="invalid-feedback">
-                                            Please choose a username.
+                                            Masukan username anda.
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- Form Group (email address) -->
-                            <div class="mb-3">
-                                <label class="small mb-1" for="inputEmailAddress">Tipe Pengguna</label>
-                                <select class="form-select" aria-label="Default select example" id="tipePengguna" name="tipePengguna" required>
-                                    <option value="" class="d-none" selected>Pilih tipe pengguna</option>
-                                    <option value="MHS">MAHASISWA</option>
-                                    <option value="UMUM">UMUM</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Pilih tipe pengguna.
-                                </div>
-                            </div>
-                            <!-- Form Group (email address) -->
                             <div class="mb-3" id="inputEmailMahasiswa">
                                 <label class="small mb-1" for="inputEmailAddress">Email Kampus</label>
-                                <input class="form-control" id="inputEmailAddress" name="emailMahasiswa" type="email" aria-describedby="emailHelp" placeholder="Enter email address" required />
+                                <input class="form-control" id="inputEmailAddress" name="email" type="email" aria-describedby="emailHelp" placeholder="Enter email address" required />
                                 <div class="invalid-feedback">
                                     Masukan email kampus anda.
                                 </div>
@@ -87,19 +117,60 @@ unset($_SESSION['flash']); // hapus biar tidak muncul terus
                                 </div>
                             </div>
                             <div class="passwordCheck alert alert-danger" role="alert">
-
                             </div>
-                            <?php if ($flash): ?>
-                                <?php if ($flash['type'] == 'success'): ?>
-                                    <div class="alert alert-success" role="alert">
-                                        <?= $flash['text'] ?>
+                            <!-- Form Group (login box)-->
+                            <div class="d-flex flex-column-reverse flex-md-row gap-5 gap-md-0 align-items-start align-items-md-center justify-content-between mt-4 mb-0">
+                                <a class="small" href="form_login.php">Have an account? Login</a>
+                                <button class="btn btn-primary" type="submit">Create account</button>
+                            </div>
+                        </form>
+
+                        <!-- Register Umum -->
+                        <form id="register_umum" class="needs-validation" action="action/register.php" method="post" novalidate>
+                            <input type="text" name="role" value="umum" class="d-none">
+                            <!-- Form Row-->
+                            <div class="row gx-3">
+                                <div class="col-12">
+                                    <!-- Form Group (first name)-->
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="inputFirstName">Username</label>
+                                        <input class="form-control" id="inputFirstName" name="username" type="text" placeholder="Enter first name" required />
+                                        <div class="invalid-feedback">
+                                            Masukan username anda.
+                                        </div>
                                     </div>
-                                <?php elseif ($flash['type'] == 'error'): ?>
-                                    <div class="alert alert-danger" role="alert">
-                                        <?= $flash['text'] ?>
+                                </div>
+                            </div>
+                            <!-- Form Group (email address) -->
+                            <div class="mb-3" id="inputEmailMahasiswa">
+                                <label class="small mb-1" for="inputEmailAddress">Email</label>
+                                <input class="form-control" id="inputEmailAddress" name="email" type="email" aria-describedby="emailHelp" placeholder="Enter email address" required />
+                                <div class="invalid-feedback">
+                                    Masukan email anda.
+                                </div>
+                            </div>
+                            <!-- Form Row    -->
+                            <div class="row gx-3">
+                                <div class="col-md-6">
+                                    <!-- Form Group (password)-->
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="inputPassword">Password</label>
+                                        <input class="form-control" id="inputPassword" name="password" type="password" placeholder="Enter password" required />
+                                        <div class="invalid-feedback">
+                                            Masukan password akun anda.
+                                        </div>
                                     </div>
-                                <?php endif; ?>
-                            <?php endif; ?>
+                                </div>
+                                <div class="col-md-6">
+                                    <!-- Form Group (confirm password)-->
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="inputConfirmPassword">Confirm Password</label>
+                                        <input class="form-control" id="inputConfirmPassword" name="confirmPassword" type="password" placeholder="Confirm password" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="passwordCheck alert alert-danger" role="alert">
+                            </div>
                             <!-- Form Group (login box)-->
                             <div class="d-flex flex-column-reverse flex-md-row gap-5 gap-md-0 align-items-start align-items-md-center justify-content-between mt-4 mb-0">
                                 <a class="small" href="form_login.php">Have an account? Login</a>
@@ -168,16 +239,18 @@ unset($_SESSION['flash']); // hapus biar tidak muncul terus
         })()
 
         $(document).ready(function() {
-            $('#inputEmailMahasiswa').hide();
             $(".passwordCheck").hide()
+            $("#register_mahasiswa").hide()
+            $("#register_umum").hide()
 
-            $("#tipePengguna").change(function() {
-                var selectedValue = $(this).val();
-                if (selectedValue === 'MHS') {
-                    $('#inputEmailMahasiswa').slideDown();
-                } else {
-                    $('#inputEmailMahasiswa').slideUp();
-                }
+            $("#select_mahasiswa").click(function() {
+                $("#user_selection").hide()
+                $("#register_mahasiswa").show()
+            })
+
+            $("#select_umum").click(function() {
+                $("#user_selection").hide()
+                $("#register_umum").show()
             })
         })
     </script>

@@ -14,34 +14,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ];
         header('Location: ../form_reset.php');
         exit;
-    }
-    catch (\Delight\Auth\InvalidSelectorTokenPairException $e) {
+    } catch (\Delight\Auth\InvalidSelectorTokenPairException $e) {
         $_SESSION['flash'] = [
             'type' => 'error',
             'title' => 'Password Gagal Diganti',
             'text'  => 'Token tidak valid atau sudah kadaluarsa!'
         ];
-    }
-    catch (\Delight\Auth\TokenExpiredException $e) {
+    } catch (\Delight\Auth\TokenExpiredException $e) {
         $_SESSION['flash'] = [
             'type' => 'error',
             'title' => 'Password Gagal Diganti',
             'text'  => 'Token sudah kadaluarsa!'
         ];
-    }
-    catch (\Delight\Auth\InvalidPasswordException $e) {
+    } catch (\Delight\Auth\InvalidPasswordException $e) {
         $_SESSION['flash'] = [
             'type' => 'error',
             'title' => 'Password Gagal Diganti',
             'text'  => 'Password baru tidak valid!'
         ];
-    }
-    catch (\Delight\Auth\TooManyRequestsException $e) {
+    } catch (\Delight\Auth\TooManyRequestsException $e) {
         $_SESSION['flash'] = [
             'type' => 'error',
             'title' => 'Password Gagal Diganti',
             'text'  => 'Terlalu banyak percobaan, coba lagi nanti!'
         ];
     }
+    header('Location: ../form_reset.php');
+    exit;
 }
-?>

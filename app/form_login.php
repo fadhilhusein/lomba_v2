@@ -1,5 +1,8 @@
 <?php
 session_start();
+include "libs/php/auth.php";
+loginState(true);
+
 $flash = $_SESSION['flash'] ?? null;
 unset($_SESSION['flash']); // hapus biar tidak muncul terus
 unset($_SESSION['data_user']);
