@@ -1,4 +1,5 @@
 <?php
+// Blok PHP untuk memproses data
 include "config/db.php";
 include "libs/php/auth.php";
 
@@ -6,11 +7,20 @@ loginState();
 
 $username = $auth->getUsername();
 $email = $auth->getEmail();
+
+// Ambil data dari tabel 'articles'
+try {
+    // Variabel $pdo sudah tersedia dari 'config/db.php'
+    $stmt = $pdo->query('SELECT title, tagline, author FROM articles ORDER BY created_at DESC');
+    $articles = $stmt->fetchAll();
+} catch (PDOException $e) {
+    // Tangani error database jika terjadi
+    die("Error: " . $e->getMessage());
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -34,13 +44,7 @@ $email = $auth->getEmail();
         <?php include_once "../components/Sidenav.php" ?>
         <div id="layoutSidenav_content">
             <main>
-
-                <!-- Main page content-->
-
-
                 <div class="container py-4">
-
-
                     <div class="custom-search-container">
                         <input type="text" class="custom-search-input" placeholder="Search...">
                         <button class="custom-search-button">
@@ -49,167 +53,30 @@ $email = $auth->getEmail();
                     </div>
 
                     <div class="row g-4">
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card card-service h-100">
-                                <div class="position-relative">
-                                    <img src="./assets/img/bahan/logo store online.jpg" class="card-img-top" alt="Card Image">
-
-                                </div>
-                                <div class="card-body">
-                                    <div class="mb-3">
-                                        <small class="text-muted ad-by">Ad by <span class="text-dark fw-bold">Fadhil</span></small>
-                                        <span class="vetter-pro-badge float-end">Front-End</span>
+                        <?php if (empty($articles)): ?>
+                            <p>Belum ada artikel yang tersedia.</p>
+                        <?php else: ?>
+                            <?php foreach ($articles as $article): ?>
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                                    <div class="card card-service h-100">
+                                        <div class="position-relative">
+                                            <img src="./assets/img/bahan/logo store online.jpg" class="card-img-top" alt="Card Image">
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <small class="text-muted ad-by">Ad by <span class="text-dark fw-bold"><?php echo htmlspecialchars($article['author']); ?></span></small>
+                                                <span class="vetter-pro-badge float-end">Front-End</span>
+                                            </div>
+                                            <p class="card-text">
+                                                <?php echo htmlspecialchars($article['title']); ?>
+                                                <br>
+                                                <small><?php echo htmlspecialchars($article['tagline']); ?></small>
+                                            </p>
+                                        </div>
                                     </div>
-                                    <p class="card-text">Membuat Website Toko Online Sederhana</p>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card card-service h-100">
-                                <div class="position-relative">
-                                    <img src="./assets/img/bahan/logo store online.jpg" class="card-img-top" alt="Card Image">
-
-                                </div>
-                                <div class="card-body">
-                                    <div class="mb-3">
-                                        <small class="text-muted ad-by">Ad by <span class="text-dark fw-bold">Fadhil</span></small>
-                                        <span class="vetter-pro-badge float-end">Front-End</span>
-                                    </div>
-                                    <p class="card-text">Membuat Website Toko Online Sederhana</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card card-service h-100">
-                                <div class="position-relative">
-                                    <img src="./assets/img/bahan/logo store online.jpg" class="card-img-top" alt="Card Image">
-
-                                </div>
-                                <div class="card-body">
-                                    <div class="mb-3">
-                                        <small class="text-muted ad-by">Ad by <span class="text-dark fw-bold">Fadhil</span></small>
-                                        <span class="vetter-pro-badge float-end">Front-End</span>
-                                    </div>
-                                    <p class="card-text">Membuat Website Toko Online Sederhana</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card card-service h-100">
-                                <div class="position-relative">
-                                    <img src="./assets/img/bahan/logo store online.jpg" class="card-img-top" alt="Card Image">
-
-                                </div>
-                                <div class="card-body">
-                                    <div class="mb-3">
-                                        <small class="text-muted ad-by">Ad by <span class="text-dark fw-bold">Fadhil</span></small>
-                                        <span class="vetter-pro-badge float-end">Front-End</span>
-                                    </div>
-                                    <p class="card-text">Membuat Website Toko Online Sederhana</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card card-service h-100">
-                                <div class="position-relative">
-                                    <img src="./assets/img/bahan/logo store online.jpg" class="card-img-top" alt="Card Image">
-                                </div>
-                                <div class="card-body">
-                                    <div class="mb-3">
-                                        <small class="text-muted ad-by">Ad by <span class="text-dark fw-bold">Fadhil</span></small>
-                                        <span class="vetter-pro-badge float-end">Front-End</span>
-                                    </div>
-                                    <p class="card-text">Membuat Website Toko Online Sederhana</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card card-service h-100">
-                                <div class="position-relative">
-                                    <img src="./assets/img/bahan/logo store online.jpg" class="card-img-top" alt="Card Image">
-                                </div>
-                                <div class="card-body">
-                                    <div class="mb-3">
-                                        <small class="text-muted ad-by">Ad by <span class="text-dark fw-bold">Fadhil</span></small>
-                                        <span class="vetter-pro-badge float-end">Front-End</span>
-                                    </div>
-                                    <p class="card-text">Membuat Website Toko Online Sederhana</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card card-service h-100">
-                                <div class="position-relative">
-                                    <img src="./assets/img/bahan/logo store online.jpg" class="card-img-top" alt="Card Image">
-                                </div>
-                                <div class="card-body">
-                                    <div class="mb-3">
-                                        <small class="text-muted ad-by">Ad by <span class="text-dark fw-bold">Fadhil</span></small>
-                                        <span class="vetter-pro-badge float-end">Front-End</span>
-                                    </div>
-                                    <p class="card-text">Membuat Website Toko Online Sederhana</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card card-service h-100">
-                                <div class="position-relative">
-                                    <img src="./assets/img/bahan/logo store online.jpg" class="card-img-top" alt="Card Image">
-                                </div>
-                                <div class="card-body">
-                                    <div class="mb-3">
-                                        <small class="text-muted ad-by">Ad by <span class="text-dark fw-bold">Fadhil</span></small>
-                                        <span class="vetter-pro-badge float-end">Front-End</span>
-                                    </div>
-                                    <p class="card-text">Membuat Website Toko Online Sederhana</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card card-service h-100">
-                                <div class="position-relative">
-                                    <img src="./assets/img/bahan/logo store online.jpg" class="card-img-top" alt="Card Image">
-                                </div>
-                                <div class="card-body">
-                                    <div class="mb-3">
-                                        <small class="text-muted ad-by">Ad by <span class="text-dark fw-bold">Fadhil</span></small>
-                                        <span class="vetter-pro-badge float-end">Front-End</span>
-                                    </div>
-                                    <p class="card-text">Membuat Website Toko Online Sederhana</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card card-service h-100">
-                                <div class="position-relative">
-                                    <img src="./assets/img/bahan/logo store online.jpg" class="card-img-top" alt="Card Image">
-                                </div>
-                                <div class="card-body">
-                                    <div class="mb-3">
-                                        <small class="text-muted ad-by">Ad by <span class="text-dark fw-bold">Fadhil</span></small>
-                                        <span class="vetter-pro-badge float-end">Front-End</span>
-                                    </div>
-                                    <p class="card-text">Membuat Website Toko Online Sederhana</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card card-service h-100">
-                                <div class="position-relative">
-                                    <img src="./assets/img/bahan/logo store online.jpg" class="card-img-top" alt="Card Image">
-                                </div>
-                                <div class="card-body">
-                                    <div class="mb-3">
-                                        <small class="text-muted ad-by">Ad by <span class="text-dark fw-bold">Fadhil</span></small>
-                                        <span class="vetter-pro-badge float-end">Front-End</span>
-                                    </div>
-                                    <p class="card-text">Membuat Website Toko Online Sederhana</p>
-                                </div>
-                            </div>
-                        </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </main>
@@ -231,5 +98,4 @@ $email = $auth->getEmail();
         crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
 </body>
-
 </html>

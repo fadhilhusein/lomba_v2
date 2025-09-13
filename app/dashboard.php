@@ -4,6 +4,15 @@ include "libs/php/auth.php";
 
 loginState();
 
+$username = $auth->getUsername();
+$email = $auth->getEmail();
+
+try {
+    $stmt = $pdo->query('SELECT id, title, author, tagline FROM articles ORDER BY created_at DESC');
+    $articles = $stmt->fetchAll();
+} catch (PDOException $e) {
+    die("Error: " . $e->getMessage());
+}
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +34,6 @@ loginState();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 </head>
 
 <body class="nav-fixed sidenav-toggled">
@@ -51,52 +59,27 @@ loginState();
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </tfoot>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Membuat Website Toko Online Sederhana</td>
-                                        <td>Edinburgh</td>
-                                        <td>
-                                            <div class="badge bg-primary text-white rounded-pill">front-End</div>
-                                        </td>
-                                        <td>
-                                            <a href="edit.php" class="btn btn-datatable btn-icon btn-transparent-dark me-2"><i class="fa-solid fa-pencil"></i></a>
-                                            <button class="btn btn-datatable btn-icon btn-transparent-dark delete-btn"><i class="fa-regular fa-trash-can"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Membuat Website Toko Online Sederhana</td>
-                                        <td>Singapore</td>
-                                        <td>
-                                            <div class="badge bg-primary text-white rounded-pill">front-End</div>
-                                        </td>
-                                        <td>
-                                            <a href="edit.php" class="btn btn-datatable btn-icon btn-transparent-dark me-2"><i class="fa-solid fa-pencil"></i></a>
-                                            <button class="btn btn-datatable btn-icon btn-transparent-dark delete-btn"><i class="fa-regular fa-trash-can"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Membuat Website Toko Online Sederhana</td>
-                                        <td>New York</td>
-                                        <td>
-                                            <div class="badge text-white rounded-pill" style="background-color: #6a1a97;">UI/UX</div>
-                                        </td>
-                                        <td>
-                                            <a href="edit.php" class="btn btn-datatable btn-icon btn-transparent-dark me-2"><i class="fa-solid fa-pencil"></i></a>
-                                            <button class="btn btn-datatable btn-icon btn-transparent-dark delete-btn"><i class="fa-regular fa-trash-can"></i></button>
-                                        </td>
-                                    </tr>
+                                    <?php if (!empty($articles)): ?>
+                                        <?php foreach ($articles as $article): ?>
+                                            <tr>
+                                                <td><?php echo htmlspecialchars($article['id']); ?></td>
+                                                <td><?php echo htmlspecialchars($article['title']); ?></td>
+                                                <td><?php echo htmlspecialchars($article['author']); ?></td>
+                                                <td>
+                                                    <div class="badge bg-primary text-white rounded-pill"><?php echo htmlspecialchars($article['tagline']); ?></div>
+                                                </td>
+                                                <td>
+                                                    <a href="edit.php?id=<?php echo htmlspecialchars($article['id']); ?>" class="btn btn-datatable btn-icon btn-transparent-dark me-2"><i class="fa-solid fa-pencil"></i></a>
+                                                    <button class="btn btn-datatable btn-icon btn-transparent-dark delete-btn" data-id="<?php echo htmlspecialchars($article['id']); ?>"><i class="fa-regular fa-trash-can"></i></button>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <tr>
+                                            <td colspan="5">Tidak ada data yang ditemukan.</td>
+                                        </tr>
+                                    <?php endif; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -107,13 +90,11 @@ loginState();
             <script src="js/scripts.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
             <script src="js/datatables/datatables-simple-demo.js"></script>
-
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
                     const table = document.getElementById('datatablesSimple');
 
                     table.addEventListener('click', function(event) {
-                        // Cek apakah elemen yang diklik adalah tombol dengan kelas 'delete-btn'
                         const targetButton = event.target.closest('.delete-btn');
 
                         if (targetButton) {
@@ -133,7 +114,22 @@ loginState();
                                         'File Anda telah dihapus.',
                                         'success'
                                     );
-                                    // Tambahkan kode AJAX di sini untuk menghapus data dari database
+                                    // Kode AJAX untuk menghapus data dari database
+                                    // const articleId = targetButton.dataset.id;
+                                    // fetch('delete.php', {
+                                    //     method: 'POST',
+                                    //     headers: { 'Content-Type': 'application/json' },
+                                    //     body: JSON.stringify({ id: articleId })
+                                    // })
+                                    // .then(response => response.json())
+                                    // .then(data => {
+                                    //     if (data.status === 'success') {
+                                    //         // Remove the row from the table
+                                    //         targetButton.closest('tr').remove();
+                                    //     } else {
+                                    //         Swal.fire('Gagal!', 'Terjadi kesalahan saat menghapus data.', 'error');
+                                    //     }
+                                    // });
                                 }
                             });
                         }
@@ -143,5 +139,4 @@ loginState();
         </div>
     </div>
 </body>
-
 </html>
