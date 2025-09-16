@@ -4,6 +4,23 @@ include "libs/php/auth.php";
 
 loginState();
 
+// Tambahkan kode ini untuk menampilkan SweetAlert
+if (isset($_GET['status']) && $_GET['status'] == 'success_edit') {
+    echo "
+    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            Swal.fire({
+                title: 'Berhasil!',
+                text: 'Data artikel berhasil diperbarui.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        });
+    </script>
+    ";
+}
+
 $username = $auth->getUsername();
 $email = $auth->getEmail();
 
@@ -90,53 +107,54 @@ try {
             <script src="js/scripts.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
             <script src="js/datatables/datatables-simple-demo.js"></script>
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    const table = document.getElementById('datatablesSimple');
+           <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const table = document.getElementById('datatablesSimple');
 
-                    table.addEventListener('click', function(event) {
-                        const targetButton = event.target.closest('.delete-btn');
+        table.addEventListener('click', function(event) {
+            const targetButton = event.target.closest('.delete-btn');
 
-                        if (targetButton) {
-                            Swal.fire({
-                                title: 'Apakah kamu yakin?',
-                                text: "Anda tidak akan dapat mengembalikan ini!",
-                                icon: 'warning',
-                                showCancelButton: true,
-                                confirmButtonColor: '#d33',
-                                cancelButtonColor: '#3085d6',
-                                confirmButtonText: 'Ya, hapus!',
-                                cancelButtonText: 'Batal'
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    Swal.fire(
-                                        'Dihapus!',
-                                        'File Anda telah dihapus.',
-                                        'success'
-                                    );
-                                    // Kode AJAX untuk menghapus data dari database
-                                    // const articleId = targetButton.dataset.id;
-                                    // fetch('delete.php', {
-                                    //     method: 'POST',
-                                    //     headers: { 'Content-Type': 'application/json' },
-                                    //     body: JSON.stringify({ id: articleId })
-                                    // })
-                                    // .then(response => response.json())
-                                    // .then(data => {
-                                    //     if (data.status === 'success') {
-                                    //         // Remove the row from the table
-                                    //         targetButton.closest('tr').remove();
-                                    //     } else {
-                                    //         Swal.fire('Gagal!', 'Terjadi kesalahan saat menghapus data.', 'error');
-                                    //     }
-                                    // });
-                                }
-                            });
-                        }
-                    });
+            if (targetButton) {
+                Swal.fire({
+                    title: 'Apakah kamu yakin?',
+                    text: "Anda tidak akan dapat mengembalikan ini!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Ya, hapus!',
+                    cancelButtonText: 'Batal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Kode AJAX untuk menghapus data dari database
+                        const articleId = targetButton.dataset.id;
+                        fetch('delete.php', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ id: articleId })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.status === 'success') {
+                                Swal.fire(
+                                    'Dihapus!',
+                                    'File Anda telah dihapus.',
+                                    'success'
+                                );
+                                // Hapus baris dari tabel
+                                targetButton.closest('tr').remove();
+                            } else {
+                                Swal.fire('Gagal!', 'Terjadi kesalahan saat menghapus data.', 'error');
+                            }
+                        });
+                    }
                 });
-            </script>
+            }
+        });
+    });
+</script>
         </div>
     </div>
 </body>
+
 </html>
