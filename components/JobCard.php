@@ -23,7 +23,8 @@ foreach($job as $data) :
 ?>
     <div class="col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
         <div class="card w-100 course-card-horizontal">
-            <img src="assets/img/bahan/logo store online.jpg" class="card-img-top" alt="Course Image">
+            <!-- <div class="card__background card-img-top"></div> -->
+            <img src="assets/img/backgrounds/gradient_background.png" class="card-img-top" alt="Course Image">
             <div class="card-body">
                 <span class="badge bg-primary"><?= $data['tagline'] ?></span>
                 <h5 class="card-title mt-2"><?= $data['title'] ?></h5>

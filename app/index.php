@@ -37,10 +37,10 @@ $email = $auth->getEmail();
         <div id="layoutSidenav_content">
             <main>
                 <!--card ads -daffa -->
-                <div class="container d-flex">
-                    <div class="card-daffa bg-primary bg-gradient mt-5 w-100">
+                <div class="card-hero container d-flex">
+                    <div class="card-daffa mt-5 w-100">
                         <div class="card-body-daffa d-flex justify-content-center align-items-center">
-                            <p class="card-text-daffa text-white ">Lorem ipsum</p>
+                            <p class="card-text-daffa text-white ">Campus Impact</p>
                         </div>
                     </div>
                 </div>
@@ -97,7 +97,7 @@ $email = $auth->getEmail();
 
                 <div class="container py-4">
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h4 class="fw-bold ms-4 mt-5">Our Job</h4>
+                        <h2 class="fw-bold ms-4 mt-5">Our Job</h2>
                         <div class="d-flex">
                             <button class="btn btn-light rounded-circle me-2"><i
                                     data-feather="chevron-left"></i></button>
@@ -128,9 +128,10 @@ $email = $auth->getEmail();
             </footer>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>

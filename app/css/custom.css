@@ -3,17 +3,23 @@
 .card-daffa {
   display: flex;
   flex-direction: column;
-  border-radius: 20px;
+  border-radius: 15px;
   width: 600px;
   height: 252px;
   overflow: hidden;
+  background: linear-gradient(45deg, rgba(0, 0, 69, 1.000) 0.000%, rgba(170, 21, 255, 1.000) 50.000%, rgba(255, 124, 212, 1.000) 100.000%)
 }
 .card-body-daffa {
   flex-grow: 1;
   padding: 24px;
 }
+.card__background {
+  background: linear-gradient(45deg, rgba(0, 0, 69, 1.000) 0.000%, rgba(170, 21, 255, 1.000) 50.000%, rgba(255, 124, 212, 1.000) 100.000%)
+}
 
 .card-text-daffa {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
   line-height: 1.8;
   margin: 10px 0px 0px 0px;
   font-size: 50px;
@@ -158,4 +164,32 @@
 .icon-large {
   width: 4rem;
   height: 4rem;
+}
+
+.cards {
+  height: clamp(max-content, 80vh,150px);
+}
+
+.cards__promotion {
+  background: linear-gradient(45deg, rgba(0, 0, 69, 1.000) 0.000%, rgba(170, 21, 255, 1.000) 50.000%, rgba(255, 124, 212, 1.000) 100.000%)
+}
+
+.cards .cards__description {
+  font-size: 0.75rem;
+  filter: opacity(0.8);
+}
+
+.scrollable {
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.scrollable::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+.sidenav-footer {
+  background-image: url("/lomba_v2/app/assets/img/backgrounds/gradient_background2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }

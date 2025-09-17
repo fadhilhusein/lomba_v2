@@ -59,10 +59,10 @@ try {
         <?php include_once "../components/Sidenav.php" ?>
         <div id="layoutSidenav_content">
             <main>
-                <div class="d-flex justify-content-center mt-5">
+                <div class="container d-flex justify-content-start px-4 mt-5">
                     <h1>Dashboard</h1>
                 </div>
-                <div class="container-xl px-4 mt-n10">
+                <div class="container-xl px-4 mt-5">
                     <div class="card mb-4">
                         <div class="card-header">Extended DataTables</div>
                         <div class="card-body">
@@ -107,52 +107,7 @@ try {
             <script src="js/scripts.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
             <script src="js/datatables/datatables-simple-demo.js"></script>
-           <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const table = document.getElementById('datatablesSimple');
-
-        table.addEventListener('click', function(event) {
-            const targetButton = event.target.closest('.delete-btn');
-
-            if (targetButton) {
-                Swal.fire({
-                    title: 'Apakah kamu yakin?',
-                    text: "Anda tidak akan dapat mengembalikan ini!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#d33',
-                    cancelButtonColor: '#3085d6',
-                    confirmButtonText: 'Ya, hapus!',
-                    cancelButtonText: 'Batal'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        // Kode AJAX untuk menghapus data dari database
-                        const articleId = targetButton.dataset.id;
-                        fetch('delete.php', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ id: articleId })
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.status === 'success') {
-                                Swal.fire(
-                                    'Dihapus!',
-                                    'File Anda telah dihapus.',
-                                    'success'
-                                );
-                                // Hapus baris dari tabel
-                                targetButton.closest('tr').remove();
-                            } else {
-                                Swal.fire('Gagal!', 'Terjadi kesalahan saat menghapus data.', 'error');
-                            }
-                        });
-                    }
-                });
-            }
-        });
-    });
-</script>
+            <script src="js/dashboard.js"></script>
         </div>
     </div>
 </body>

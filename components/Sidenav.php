@@ -1,6 +1,6 @@
 <div id="layoutSidenav_nav">
     <nav class="sidenav shadow-right sidenav-light">
-        <div class="sidenav-menu">
+        <div class="sidenav-menu scrollable">
             <div class="nav accordion" id="accordionSidenav">
                 <!-- Sidenav Menu Heading (Account)-->
                 <!-- * * Note: * * Visible only on and above the sm breakpoint-->
@@ -74,13 +74,20 @@
                     <div class="nav-link-icon"><i data-feather="filter"></i></div>
                     Tables
                 </a>
+
+                <div class="cards mt-4 p-3 d-flex">
+                    <div class="cards__promotion w-100 p-3 rounded-2">
+                        <span class="cards__title text-white fw-bold">Premium Membership</span>
+                        <p class="cards__description text-white mt-1">Langganan membership untuk mendapatkan keuntungannya!</p>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Sidenav Footer-->
         <div class="sidenav-footer">
             <div class="sidenav-footer-content">
-                <div class="sidenav-footer-subtitle">Logged in as:</div>
-                <div class="sidenav-footer-title"><?= $username ?></div>
+                <div class="sidenav-footer-subtitle text-white">Logged in as</div>
+                <div class="sidenav-footer-title text-white"><?= $username ?></div>
             </div>
         </div>
     </nav>
