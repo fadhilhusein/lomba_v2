@@ -53,7 +53,7 @@ try {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body class="nav-fixed sidenav-toggled">
+<body class="nav-fixed">
     <?php include_once "../components/Topbar.php" ?>
     <div id="layoutSidenav">
         <?php include_once "../components/Sidenav.php" ?>

@@ -1,4 +1,7 @@
 /* tambahan css dari daffa */
+html, body {
+  scroll-behavior: smooth;
+}
 
 .card-daffa {
   display: flex;
@@ -7,14 +10,24 @@
   width: 600px;
   height: 252px;
   overflow: hidden;
-  background: linear-gradient(45deg, rgba(0, 0, 69, 1.000) 0.000%, rgba(170, 21, 255, 1.000) 50.000%, rgba(255, 124, 212, 1.000) 100.000%)
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 69, 1) 0%,
+    rgba(170, 21, 255, 1) 50%,
+    rgba(255, 124, 212, 1) 100%
+  );
 }
 .card-body-daffa {
   flex-grow: 1;
   padding: 24px;
 }
 .card__background {
-  background: linear-gradient(45deg, rgba(0, 0, 69, 1.000) 0.000%, rgba(170, 21, 255, 1.000) 50.000%, rgba(255, 124, 212, 1.000) 100.000%)
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 69, 1) 0%,
+    rgba(170, 21, 255, 1) 50%,
+    rgba(255, 124, 212, 1) 100%
+  );
 }
 
 .card-text-daffa {
@@ -31,6 +44,22 @@
 }
 .purple-text {
   color: #6a0dad; /* Ganti dengan kode warna ungu yang Anda inginkan */
+}
+.gradient-text {
+  background: linear-gradient(
+    45deg,
+    rgba(77, 43, 123, 1) 0%,
+    rgba(104, 44, 167, 1) 16.667%,
+    rgba(139, 53, 206, 1) 33.333%,
+    rgba(176, 69, 232, 1) 50%,
+    rgba(208, 88, 240, 1) 66.667%,
+    rgba(229, 107, 227, 1) 83.333%,
+    rgba(236, 121, 196, 1) 100%
+  );
+  -webkit-background-clip: text; /* untuk Safari/Chrome */
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* untuk browser modern */
+  color: transparent;
 }
 .w-85-custom {
   width: 85%;
@@ -105,44 +134,44 @@
 
 /* tambahan csss dari daffa */
 .button-group-tagline {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Jarak antar tombol */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Jarak antar tombol */
 }
 
 .btn-tagline {
-    text-align: center;
-    padding: 12px 20px;
-    border-radius: 50px; /* Bentuk kapsul */
-    color: #fff;
-    font-weight: bold;
-    text-decoration: none;
-    transition: transform 0.2s ease-in-out;
+  text-align: center;
+  padding: 12px 20px;
+  border-radius: 50px; /* Bentuk kapsul */
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out;
 }
 
 .btn-tagline.web-dev {
-    background-color: #00bcd4; /* Biru muda */
+  background-color: #00bcd4; /* Biru muda */
 }
 
 .btn-tagline.ui-ux {
-    background-color: #673ab7; /* Ungu */
+  background-color: #673ab7; /* Ungu */
 }
 
 .btn-tagline.design {
-    background-color: #ffc107; /* Oranye */
+  background-color: #ffc107; /* Oranye */
 }
 
 .btn-tagline.copy-writing {
-    background-color: #f44336; /* Merah */
+  background-color: #f44336; /* Merah */
 }
 
 .btn-tagline.active {
-    border: 3px solid #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border: 3px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .btn-tagline:hover {
-    transform: scale(1.05); /* Efek hover kecil */
+  transform: scale(1.05); /* Efek hover kecil */
 }
 
 /* Punya Fadhil */
@@ -166,12 +195,46 @@
   height: 4rem;
 }
 
+.button-campus {
+  color: white;
+  background: linear-gradient(
+    45deg,
+    rgba(77, 43, 123, 1) 0%,
+    rgba(104, 44, 167, 1) 16.667%,
+    rgba(139, 53, 206, 1) 33.333%,
+    rgba(176, 69, 232, 1) 50%,
+    rgba(208, 88, 240, 1) 66.667%,
+    rgba(229, 107, 227, 1) 83.333%,
+    rgba(236, 121, 196, 1) 100%
+  );
+  border: none;
+}
+
 .cards {
-  height: clamp(max-content, 80vh,150px);
+  height: clamp(max-content, 80vh, 150px);
 }
 
 .cards__promotion {
-  background: linear-gradient(45deg, rgba(0, 0, 69, 1.000) 0.000%, rgba(170, 21, 255, 1.000) 50.000%, rgba(255, 124, 212, 1.000) 100.000%)
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 69, 1) 0%,
+    rgba(170, 21, 255, 1) 50%,
+    rgba(255, 124, 212, 1) 100%
+  );
+}
+
+.box__aichat {
+  overflow-y: hidden;
+  height: calc(100vh - 3.625rem);
+}
+
+.box .box__greeting,
+.box .box__wraper {
+  height: 85%;
+}
+
+.box .box__footer {
+  height: 15%;
 }
 
 .cards .cards__description {
@@ -179,12 +242,14 @@
   filter: opacity(0.8);
 }
 
-.scrollable {
+.scrollable,
+.box__chat {
   overflow-y: scroll;
   scrollbar-width: none;
 }
 
-.scrollable::-webkit-scrollbar {
+.scrollable::-webkit-scrollbar,
+.box__chat::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Edge */
 }
 
@@ -192,4 +257,129 @@
   background-image: url("/lomba_v2/app/assets/img/backgrounds/gradient_background2.png");
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.sidenav-footer {
+  box-shadow: 0px -10px 10px -10px #0000006b;
+  border-radius: 10px 10px 0 0;
+}
+
+.button-ai {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  padding: 1rem;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(
+    45deg,
+    rgba(77, 43, 123, 1) 0%,
+    rgba(104, 44, 167, 1) 16.667%,
+    rgba(139, 53, 206, 1) 33.333%,
+    rgba(176, 69, 232, 1) 50%,
+    rgba(208, 88, 240, 1) 66.667%,
+    rgba(229, 107, 227, 1) 83.333%,
+    rgba(236, 121, 196, 1) 100%
+  );
+  color: white;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.463);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.button-ai:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.chat-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 16px; /* sudut membulat */
+  padding: 10px 15px;
+  background: #fff;
+  width: 100%;
+  max-width: 600px; /* atur lebar max */
+  margin: auto; /* biar center */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.chat-box input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 16px;
+}
+
+.chat-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chat-tools button {
+  background: none;
+  border: none;
+  color: #555;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.chat-tools button:hover {
+  color: #0d6efd;
+}
+
+.user-chat {
+  background: linear-gradient(
+    45deg,
+    rgba(77, 43, 123, 1) 0%,
+    rgba(104, 44, 167, 1) 16.667%,
+    rgba(139, 53, 206, 1) 33.333%,
+    rgba(176, 69, 232, 1) 50%,
+    rgba(208, 88, 240, 1) 66.667%,
+    rgba(229, 107, 227, 1) 83.333%,
+    rgba(236, 121, 196, 1) 100%
+  );
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 15px 0;
+  align-self: flex-end;
+  max-width: 75%;
+  white-space: normal;     
+  word-wrap: break-word;   
+  word-break: break-word; 
+}
+
+.ai-chat {
+  display: flex;
+  column-gap: 15px;
+  color: #555;
+  border-radius: 10px;
+  padding: 8px;
+  margin: 4px 0;
+  align-self: flex-start;
+}
+
+.chat__input {
+  white-space: normal;     
+  word-wrap: break-word;   
+  word-break: break-word; 
+}
+
+.ai-chat-lottie {
+  align-self: flex-start;
+  width: 10vw; /* responsif terhadap lebar viewport */
+  height: auto; /* biar proporsional */
+  min-width: 30px;
+  max-width: 30px; /* batasi ukuran maksimal */
 }

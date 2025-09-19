@@ -71,7 +71,7 @@ try {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="nav-fixed sidenav-toggled">
+<body class="nav-fixed">
     <?php include_once "../components/Topbar.php" ?>
     <div id="layoutSidenav">
         <?php include_once "../components/Sidenav.php" ?>

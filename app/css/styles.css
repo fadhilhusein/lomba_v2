@@ -18612,6 +18612,7 @@ body {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   height: 5rem;
+  background: linear-gradient(45deg, rgba(0, 0, 69, 1.000) 0.000%, rgba(170, 21, 255, 1.000) 50.000%, rgba(255, 124, 212, 1.000) 100.000%)
 }
 .sidenav .sidenav-footer .sidenav-footer-content {
   font-size: 0.9rem;

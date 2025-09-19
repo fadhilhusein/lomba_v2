@@ -21,6 +21,7 @@ try {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -36,6 +37,7 @@ try {
         src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
 </head>
 
 <body class="nav-fixed">
@@ -44,43 +46,30 @@ try {
         <?php include_once "../components/Sidenav.php" ?>
         <div id="layoutSidenav_content">
             <main>
-                <div class="container py-4">
-                    <div class="custom-search-container">
-                        <input type="text" class="custom-search-input" placeholder="Search...">
-                        <button class="custom-search-button">
-                            <i class="fas fa-search"></i>
-                        </button>
+                <div class="box box__aichat">
+                    <div class="box__greeting">
+                        <div class="h-100 d-flex flex-column justify-content-center align-items-center">
+                            <h1><span class="letter">Hallo</span> <span class="gradient-text letter"><?= $username ?></span></h1>
+                            <p><span class="letter">Apa</span> <span class="letter">yang</span> <span class="letter">bisa</span> <span class="letter">saya</span> <span class="letter">bantu</span> <span class="letter">hari</span> <span class="letter">ini?</span></p>
+                        </div>
                     </div>
-
-                    <div class="row g-4">
-                        <?php if (empty($articles)): ?>
-                            <p>Belum ada artikel yang tersedia.</p>
-                        <?php else: ?>
-                            <?php foreach ($articles as $article): ?>
-                                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                                    <div class="card card-service h-100">
-                                        <div class="position-relative">
-                                            <img src="./assets/img/bahan/logo store online.jpg" class="card-img-top" alt="Card Image">
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="mb-3">
-                                                <small class="text-muted ad-by">Ad by <span class="text-dark fw-bold"><?php echo htmlspecialchars($article['author']); ?></span></small>
-                                                <span class="vetter-pro-badge float-end">Front-End</span>
-                                            </div>
-                                            <p class="card-text">
-                                                <?php echo htmlspecialchars($article['title']); ?>
-                                                <br>
-                                                <small><?php echo htmlspecialchars($article['tagline']); ?></small>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
+                    <div class="box__wraper row g-0 justify-content-center py-4">
+                        <div class="box__chat col-12 px-2 px-md-0 col-md-6 d-flex flex-column h-100">
+                            
+                        </div>
+                    </div>
+                    <div class="box__footer p-3">
+                        <div class="chat-box">
+                            <input type="text" class="chat__input" placeholder="Ask CampusIT" />
+                            <div class="chat-tools">
+                                <button id="button-submit"><i class="ph ph-paper-plane-tilt"></i></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </main>
-            <footer class="footer-admin mt-auto footer-light">
+            <!-- <footer class="footer-admin mt-auto footer-light">
                 <div class="container-xl px-4">
                     <div class="row">
                         <div class="col-md-6 small">Copyright &copy; Your Website 2021</div>
@@ -91,11 +80,17 @@ try {
                         </div>
                     </div>
                 </div>
-            </footer>
+            </footer> -->
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="js/aichat.js"></script>
     <script src="js/scripts.js"></script>
 </body>
+
 </html>

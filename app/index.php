@@ -28,9 +28,10 @@ $email = $auth->getEmail();
         src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
 </head>
 
-<body class="nav-fixed sidenav-toggled">
+<body class="nav-fixed">
     <?php include_once "../components/Topbar.php" ?>
     <div id="layoutSidenav">
         <?php include_once "../components/Sidenav.php" ?>
@@ -94,7 +95,6 @@ $email = $auth->getEmail();
                 </div>
 
                 <!-- scroll card daffa-->
-
                 <div class="container py-4">
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <h2 class="fw-bold ms-4 mt-5">Our Job</h2>
@@ -109,10 +109,8 @@ $email = $auth->getEmail();
                         <?php include_once "../components/JobCard.php" ?>
                     </div>
                 </div>
-                <!-- Main page content-->
-                <div class="container-xl px-4">
 
-                </div>
+                <?php include_once "../components/aiButton.php" ?>
             </main>
             <footer class="footer-admin mt-auto footer-light">
                 <div class="container-xl px-4">

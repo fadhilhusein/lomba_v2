@@ -23,16 +23,16 @@
                 <div class="sidenav-menu-heading">Core</div>
                 <!-- Sidenav Accordion (Dashboard)-->
                 <a class="nav-link" href="dashboard.php">
-                    <div class="nav-link-icon"><i data-feather="activity"></i></div>
+                    <div class="nav-link-icon"><i class="ph ph-gauge" style="font-size: 18px;"></i></div>
                     Dashboards
-                </a>
-                <a class="nav-link" href="create.php">
-                    <div class="nav-link-icon"><i data-feather="plus-circle"></i></div>
-                    Tambah Job
                 </a>
                 <a class="nav-link" href="kategori.php">
                     <div class="nav-link-icon"><i data-feather="grid"></i></div>
                     Kategori
+                </a>
+                <a class="nav-link" href="create.php">
+                    <div class="nav-link-icon"><i data-feather="plus-circle"></i></div>
+                    Tambah Job
                 </a>
 
                 <!-- Sidenav Heading (Custom)-->
@@ -75,19 +75,21 @@
                     Tables
                 </a>
 
-                <div class="cards mt-4 p-3 d-flex">
-                    <div class="cards__promotion w-100 p-3 rounded-2">
+                <!-- <div class="cards mt-4 p-3 d-flex">
+                    <div class="cards__promotion w-100 p-3 rounded-3">
                         <span class="cards__title text-white fw-bold">Premium Membership</span>
                         <p class="cards__description text-white mt-1">Langganan membership untuk mendapatkan keuntungannya!</p>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- Sidenav Footer-->
-        <div class="sidenav-footer">
-            <div class="sidenav-footer-content">
-                <div class="sidenav-footer-subtitle text-white">Logged in as</div>
-                <div class="sidenav-footer-title text-white"><?= $username ?></div>
+        <div class="">
+            <div class="cards p-3 d-flex">
+                <div class="cards__promotion w-100 p-3 rounded-3">
+                    <span class="cards__title text-white fw-bold d-flex align-items-end lh-1 gap-1"><i class="ph-fill ph-sparkle"></i> Premium Membership</span>
+                    <p class="cards__description text-white mt-1">Langganan membership untuk mendapatkan keuntungannya!</p>
+                </div>
             </div>
         </div>
     </nav>
