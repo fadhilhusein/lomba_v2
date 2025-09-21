@@ -65,6 +65,9 @@ try {
                                 <button id="button-submit"><i class="ph ph-paper-plane-tilt"></i></button>
                             </div>
                         </div>
+                        <div class="chat-reminder d-flex justify-content-center align-items-center">
+                            <p>Model AI ini belum sepenuhnya sempurna. Mohon teliti segala jawaban yang diberikan.</p>
+                        </div>
                     </div>
                 </div>
 

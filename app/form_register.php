@@ -32,7 +32,7 @@ unset($_SESSION['flash']); // hapus biar tidak muncul terus
                 <div class="row g-0 h-100">
                     <div class="col-md-6 d-flex flex-column justify-content-md-center py-5 py-md-0 px-5" id="main">
                         <div class="form-header mb-4 d-md-flex justify-content-between">
-                            <h1 class="fw-bolder"><span class="purple-text">Campus</span>Impact</h1>
+                            <h1 class="fw-bolder"><span class="gradient-text">Campus</span>Impact</h1>
                             <h2>Sign Up</h2>
                         </div>
                         <div id="user_selection" class="row h-25">

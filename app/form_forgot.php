@@ -30,7 +30,7 @@ unset($_SESSION['data_user']);
                 <div class="row g-0 h-100">
                     <div class="col-md-6 d-flex flex-column justify-content-center px-5" id="main">
                         <div class="form-header mb-4">
-                            <h1 class="fw-bolder"><span class="purple-text">Campus</span>Impact</h1>
+                            <h1 class="fw-bolder"><span class="gradient-text">Campus</span>Impact</h1>
                         </div>
                         <form action="action/forgot.php" method="post">
                             <input class="form-control" type="email" name="email" placeholder="Email" required><br>

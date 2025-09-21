@@ -33,7 +33,7 @@ unset($_SESSION['data_user']);
                 <div class="row g-0 h-100">
                     <div class="col-md-6 d-flex flex-column justify-content-center px-5" id="main">
                         <div class="form-header mb-3">
-                            <h1 class="fw-bolder"><span class="purple-text">Campus</span>Impact</h1>
+                            <h1 class="fw-bolder"><span class="gradient-text">Campus</span>Impact</h1>
                             <p>Don't have an account? <a href="form_register.php">Sign up</a></p>
                         </div>
                         <form class="needs-validation" action="action/login.php" method="post" novalidate>

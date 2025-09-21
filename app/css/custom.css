@@ -234,6 +234,10 @@ html, body {
 }
 
 .box .box__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 15%;
 }
 
@@ -335,7 +339,7 @@ html, body {
 }
 
 .chat-tools button:hover {
-  color: #0d6efd;
+  color: rgba(176, 69, 232, 1);
 }
 
 .user-chat {
@@ -382,4 +386,10 @@ html, body {
   height: auto; /* biar proporsional */
   min-width: 30px;
   max-width: 30px; /* batasi ukuran maksimal */
+}
+
+.chat-reminder p {
+  margin: 0;
+  font-size: 0.8rem;
+  text-align: center;
 }

@@ -34,7 +34,7 @@ if (!isset($_GET['selector'])) {
                 <div class="row g-0 h-100">
                     <div class="col-md-6 d-flex flex-column justify-content-center px-5" id="main">
                         <div class="form-header mb-4">
-                            <h1 class="fw-bolder"><span class="purple-text">Campus</span>Impact</h1>
+                            <h1 class="fw-bolder"><span class="gradient-text">Campus</span>Impact</h1>
                         </div>
                         <form class="needs-validation" action="action/reset.php" method="post" novalidate>
                             <input class="d-none" type="text" name="selector" value="<?= $_GET['selector'] ?? "" ?>">
