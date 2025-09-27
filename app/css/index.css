@@ -1,0 +1,168 @@
+/* Gaya Dasar */
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Tambahkan warna latar belakang untuk melihat gap */
+    font-family: Arial, sans-serif;
+}
+
+/* Container Utama Slider: Mengatur Tinggi dan Gap */
+.slider-container {
+    position: relative;
+    
+    /* Batasan Lebar: Memastikan ada gap di kanan-kiri (Misal, 90% lebar viewport) */
+    width: 90vw; 
+    max-width: 1500px; /* Batas lebar maksimal */
+    margin: 50px auto; /* Margin Atas/Bawah dan Tengah Horizontal */
+    
+    /* Tinggi Baru: Lebih pendek dari full page */
+    height: 1500px; 
+    
+    border-radius: 15px; /* Sudut membulat */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Bayangan */
+    overflow: hidden; 
+}
+
+/* Wrapper Slide (Tidak banyak berubah) */
+.slider-wrapper {
+    display: flex;
+    width: 200%; 
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Item Slide: Fokus pada Background Gambar */
+.slide-item {
+    width: 50%;
+    height: 100%;
+    
+    /* Properti Gambar Latar Belakang */
+    background-size: cover; /* Pastikan gambar menutupi area slide */
+    background-position: center; /* Pusatkan gambar */
+    background-repeat: no-repeat;
+    
+    /* Penempatan Teks di Tengah */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Overlay (Tidak Berubah) */
+.slide-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: 1;
+}
+
+/* Teks (Disesuaikan untuk caption yang lebih kecil) */
+.slide-caption {
+    color: white; 
+    font-size: 2.5rem; /* Ukuran teks lebih kecil dari hero title */
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    z-index: 10;
+    padding: 0 20px;
+}
+
+/* Tombol Slider (Transparan dan Di Dalam - Tidak banyak berubah) */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    background-color: rgba(0, 0, 0, 0.3); /* Dibuat lebih gelap agar kontras dengan latar belakang */
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 50%; /* Dibuat bulat */
+    transition: background-color 0.3s;
+}
+
+.prev-btn {
+    left: 10px; /* Jarak dari tepi dalam */
+}
+
+.next-btn {
+    right: 10px; /* Jarak dari tepi dalam */
+}
+
+.slider-btn:hover {
+    background-color: rgba(0, 0, 0, 0.6); 
+}
+/* Custom CSS untuk Section Nilai Utama */
+
+/* Gaya untuk Container Section */
+#nilai-utama {
+    background-color: #ffffff; /* Latar belakang putih atau warna netral */
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+/* Gaya untuk Ikon */
+.icon-benefit {
+    font-size: 3rem; /* Ukuran ikon besar */
+    color: #4B0082; /* Warna primer (Misalnya, ungu tua) */
+    display: block;
+    margin: 0 auto 15px auto; /* Pusatkan ikon */
+}
+
+/* Gaya Card */
+.card-benefit {
+    border: none; /* Hapus border default Bootstrap */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Efek Hover Card (Opsional) */
+.card-benefit:hover {
+    transform: translateY(-5px); /* Geser sedikit ke atas */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Bayangan sedikit lebih besar */
+}
+
+/* Penyesuaian Responsif (Jika perlu lebih lanjut, tapi Bootstrap sudah cukup) */
+@media (max-width: 768px) {
+    .card-benefit {
+        margin-bottom: 20px;
+    }
+}
+/* Gaya DEFAULT (Untuk Desktop/Layar Besar) */
+.slider-container {
+    position: relative;
+    width: 90vw; 
+    max-width: 1200px; 
+    margin: 50px auto; /* Ada jarak di kanan/kiri dan atas/bawah */
+    height: 450px; /* Tinggi pendek/terbatas */
+    border-radius: 15px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+    overflow: hidden; 
+}
+
+/* MEDIA QUERY: Terapkan Full Page dan Hapus Margin di Mobile */
+@media (max-width: 767.98px) {
+    
+    .slider-container {
+        /* Tinggi Penuh Layar (Full Viewport Height) */
+        height: 100vh;
+        
+        /* Lebar Penuh Layar (Menghilangkan Gap Kanan/Kiri) */
+        width: 100vw;
+        max-width: none;
+        
+        /* Menghilangkan Margin dan Padding Agar Menempel di Tepi */
+        margin: 0;
+        border-radius: 0; /* Menghilangkan sudut membulat */
+        box-shadow: none; /* Menghilangkan bayangan */
+    }
+
+    /* Pastikan Body/HTML tidak memiliki margin default */
+    body, html {
+        overflow-x: hidden; /* Mencegah scroll horizontal */
+    }
+}
