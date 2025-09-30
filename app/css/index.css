@@ -1,56 +1,56 @@
- .main-content-fadhil {
-            /* Memastikan konten terpusat memiliki lebar maksimum yang wajar di desktop */
-            max-width: 600px;
-            text-align: center;
-        }
+.main-content-fadhil {
+  /* Memastikan konten terpusat memiliki lebar maksimum yang wajar di desktop */
+  max-width: 600px;
+  text-align: center;
+}
 
-        .main-title-fadhil {
-            /* Judul utama: besar, tebal, hitam */
-            font-size: 3.5rem; /* Ukuran besar */
-            font-weight: 900; /* Ekstra tebal */
-            color: #000;
-            line-height: 1.1;
-        }
+.main-title-fadhil {
+  /* Judul utama: besar, tebal, hitam */
+  font-size: 3.5rem; /* Ukuran besar */
+  font-weight: 900; /* Ekstra tebal */
+  color: #000;
+  line-height: 1.1;
+}
 
-        /* Responsive font size for title on smaller screens */
-        @media (max-width: 768px) {
-            .main-title-fadhil {
-                font-size: 2.5rem;
-            }
-        }
+/* Responsive font size for title on smaller screens */
+@media (max-width: 768px) {
+  .main-title-fadhil {
+    font-size: 2.5rem;
+  }
+}
 
-        .btn-black-custom-fadhil {
-            /* Kustomisasi tombol: sudut sangat membulat, latar hitam, teks putih */
-            background-color: #000;
-            color: #fff;
-            border: 1px solid #000;
-            border-radius: 50px; /* Sudut sangat membulat */
-            padding: 10px 25px;
-            font-weight: 700;
-            transition: background-color 0.3s, opacity 0.3s;
-        }
+.btn-black-custom-fadhil {
+  /* Kustomisasi tombol: sudut sangat membulat, latar hitam, teks putih */
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000;
+  border-radius: 50px; /* Sudut sangat membulat */
+  padding: 10px 25px;
+  font-weight: 700;
+  transition: background-color 0.3s, opacity 0.3s;
+}
 
-        .btn-black-custom-fadhil:hover {
-            background-color: #333; /* Sedikit lebih terang saat hover */
-            color: #fff;
-            opacity: 0.9;
-        }
+.btn-black-custom-fadhil:hover {
+  background-color: #333; /* Sedikit lebih terang saat hover */
+  color: #fff;
+  opacity: 0.9;
+}
 
-        .btn-group-custom-fadhil {
-            /* Tambahkan margin atas untuk memisahkan dari teks panduan */
-            margin-top: 10px;
-        }
+.btn-group-custom-fadhil {
+  /* Tambahkan margin atas untuk memisahkan dari teks panduan */
+  margin-top: 10px;
+}
 
-        .description-text-fadhil {
-            /* Warna teks deskripsi sedikit abu-abu agar tidak terlalu menonjol */
-            color: #4a4a4a;
-            font-size: 1.1rem;
-            margin-bottom: 25px; /* Jarak bawah yang cukup */
-        }
+.description-text-fadhil {
+  /* Warna teks deskripsi sedikit abu-abu agar tidak terlalu menonjol */
+  color: #4a4a4a;
+  font-size: 1.1rem;
+  margin-bottom: 25px; /* Jarak bawah yang cukup */
+}
 
-        .guide-text-fadhil {
-            color: #000;
-            font-weight: 700;
-            margin-top: 30px; /* Jarak atas untuk memisahkan dari deskripsi */
-            margin-bottom: 10px; /* Jarak bawah ke grup tombol */
-        }
+.guide-text-fadhil {
+  color: #000;
+  font-weight: 700;
+  margin-top: 30px; /* Jarak atas untuk memisahkan dari deskripsi */
+  margin-bottom: 10px; /* Jarak bawah ke grup tombol */
+}

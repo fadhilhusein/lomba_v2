@@ -39,22 +39,6 @@ $email = $auth->getEmail();
         <?php include_once "../components/Sidenav.php" ?>
         <div id="layoutSidenav_content">
             <main>
-                <div class="slider-container">
-                    <div class="slider-wrapper">
-                        <div class="slide-item"
-                            data-img-path="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
-                            <p class="slide-caption">Jelajahi Dunia Baru</p>
-                        </div>
-
-                        <div class="slide-item"
-                            data-img-path="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fit=crop&w=1200&h=450&q=80">
-                            <p class="slide-caption">Mulai Petualangan Anda</p>
-                        </div>
-                    </div>
-                    <button class="slider-btn prev-btn">&#10094;</button>
-                    <button class="slider-btn next-btn">&#10095;</button>
-                </div>
-
                 <!-- scroll card daffa-->
                 <div class="container py-4">
                     <div class="d-flex justify-content-between align-items-center mb-4">
