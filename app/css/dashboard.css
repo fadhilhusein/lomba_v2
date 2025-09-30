@@ -1,30 +1,142 @@
- body {
-     background-color: #f0f2f5;
- }
+:root {
+    /* Custom purple color theme */
+    --bs-primary: #8352FD;
+    --bs-primary-rgb: 131, 82, 253;
+    --bs-primary-light: #f1edff;
+    --bs-body-font-family: 'Inter', sans-serif;
+    --bs-body-bg: #f8f9fa;
+}
 
- .container {
-     margin-top: 2rem;
- }
+body {
+    font-family: var(--bs-body-font-family);
+    background-color: var(--bs-body-bg);
+    color: #495057;
+}
 
- .table-custom-header {
-     background-color: #7257e9;
-     color: white;
-     font-weight: 600;
- }
+.navbar {
+    background-color: #fff;
+    border-bottom: 1px solid #dee2e6;
+}
 
- .btn-custom-add {
-     font-weight: 600;
+.search-input {
+    border: 1px solid #e9ecef;
+    background-color: transparent;
+    border-radius: 0.5rem;
+}
+.search-input:focus {
+    box-shadow: none;
+    border-color: var(--bs-primary);
+}
 
+.notification-bell {
+    position: relative;
+    font-size: 1.25rem;
+    color: #6c757d;
+}
 
- }
+.notification-dot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #dc3545;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
 
- .btn-custom-edit {
-     font-weight: 600;
- }
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
 
- .btn-custom-delete {
-     font-weight: 600;
- }
- .delete-btn{
+.card {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.07);
+}
+
+.stat-card-icon {
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    background-color: var(--bs-primary-light);
+    color: var(--bs-primary);
+    font-size: 1.25rem;
+}
+
+.text-muted-light {
+    color: #6c757d;
+}
+
+.fw-semibold {
+    font-weight: 600 !important;
+}
+
+/* Custom badge styles */
+.badge-custom {
+    font-size: 0.75rem;
+    padding: 0.4em 0.8em;
+    border-radius: 20px;
+}
+
+.badge-selesai {
+    background-color: var(--bs-primary-light);
+    color: var(--bs-primary);
+}
+
+.badge-aktif {
+     background-color: #e6f7ff;
+     color: #1890ff;
+}
+
+.badge-menunggu {
+    background-color: #f0f2f5;
+    color: #595959;
+}
+
+.progress {
+    height: 8px;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--bs-primary);
+    --bs-btn-border-color: var(--bs-primary);
+    --bs-btn-hover-bg: #7148d8;
+    --bs-btn-hover-border-color: #7148d8;
+    --bs-btn-active-bg: #633ec0;
+    --bs-btn-active-border-color: #633ec0;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+}
+
+.btn-outline-secondary {
+    border-color: #ced4da;
+    color: #495057;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.project-item:not(:last-child) {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #212529;
     font-weight: 600;
- }
+}

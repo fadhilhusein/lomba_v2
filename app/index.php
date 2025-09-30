@@ -36,47 +36,50 @@ $email = $auth->getEmail();
 <body class="nav-fixed">
     <?php include_once "../components/Topbar.php" ?>
     <div id="layoutSidenav">
-        <?php include_once "../components/Sidenav.php" ?>w
+        <?php include_once "../components/Sidenav.php" ?>
         <div id="layoutSidenav_content">
             <main>
                 <!--card ads -daffa -->
 
-                <!DOCTYPE html>
-                <html lang="id">
 
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Hero Slider Pendek dan Berjarak</title>
-                    <link rel="stylesheet" href="styles.css">
-                </head>
 
                 <body>
 
-                    <div class="slider-container">
+                    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="container px-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <!-- Penggunaan class kustom yang baru -->
+                    <div class="main-content-fadhil">
 
-                        <div class="slider-wrapper">
+                        <!-- Judul Utama -->
+                        <h1 class="main-title-fadhil mb-3">Campus Impact</h1>
 
-                            <div class="slide-item"
-                                data-img-path="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
-                                <p class="slide-caption">Jelajahi Dunia Baru</p>
-                            </div>
+                        <!-- Teks Deskripsi -->
+                        <p class="description-text-fadhil">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
 
-                            <div class="slide-item"
-                                data-img-path="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fit=crop&w=1200&h=450&q=80">
-                                <p class="slide-caption">Mulai Petualangan Anda</p>
-                            </div>
+                        <!-- Teks Panduan -->
+                        <p class="guide-text-fadhil">Lanjut Sebagai</p>
 
+                        <!-- Pilihan Lanjut (Tombol) -->
+                        <div class="btn-group-custom-fadhil d-flex flex-column flex-sm-row justify-content-center gap-2">
+                            <!-- Tombol 1: Mahasiswa -->
+                            <button type="button" class="btn btn-black-custom-fadhil">Mahasiswa</button>
+                            
+                            <!-- Tombol 2: UMKM/Umum -->
+                            <button type="button" class="btn btn-black-custom-fadhil">UMKM/Umum</button>
                         </div>
 
-                        <button class="slider-btn prev-btn">&#10094;</button>
-                        <button class="slider-btn next-btn">&#10095;</button>
-
                     </div>
-
+                </div>
+            </div>
+        </div>
+    </div>
 
                     <!-- anakan card-->
-                    
+
 
                     <!-- scroll card daffa-->
                     <div class="container py-4">
