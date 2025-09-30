@@ -36,10 +36,9 @@ $email = $auth->getEmail();
 <body class="nav-fixed">
     <?php include_once "../components/Topbar.php" ?>
     <div id="layoutSidenav">
-        <?php include_once "../components/Sidenav.php" ?>w
+        <?php include_once "../components/Sidenav.php" ?>
         <div id="layoutSidenav_content">
             <main>
-<<<<<<<<< Temporary merge branch 1
                 <div class="slider-container">
                     <div class="slider-wrapper">
                         <div class="slide-item"
@@ -64,72 +63,15 @@ $email = $auth->getEmail();
                             <button class="btn btn-light rounded-circle me-2"><i
                                     data-feather="chevron-left"></i></button>
                             <button class="btn btn-light rounded-circle"><i data-feather="chevron-right"></i></button>
-=========
-                <!--card ads -daffa -->
-
-
-
-                <body>
-
-                    <div class="d-flex justify-content-center align-items-center vh-100">
-        <div class="container px-4">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <!-- Penggunaan class kustom yang baru -->
-                    <div class="main-content-fadhil">
-
-                        <!-- Judul Utama -->
-                        <h1 class="main-title-fadhil mb-3">Campus Impact</h1>
-
-                        <!-- Teks Deskripsi -->
-                        <p class="description-text-fadhil">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-
-                        <!-- Teks Panduan -->
-                        <p class="guide-text-fadhil">Lanjut Sebagai</p>
-
-                        <!-- Pilihan Lanjut (Tombol) -->
-                        <div class="btn-group-custom-fadhil d-flex flex-column flex-sm-row justify-content-center gap-2">
-                            <!-- Tombol 1: Mahasiswa -->
-                            <button type="button" class="btn btn-black-custom-fadhil">Mahasiswa</button>
-                            
-                            <!-- Tombol 2: UMKM/Umum -->
-                            <button type="button" class="btn btn-black-custom-fadhil">UMKM/Umum</button>
                         </div>
+                    </div>
 
+                    <div class="row flex-nowrap horizontal-scroll-container pb-3">
+                        <?php include_once "../components/JobCard.php" ?>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
 
-                    <!-- anakan card-->
-
-
-                    <!-- scroll card daffa-->
-                    <div class="container py-4">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h2 class="fw-bold ms-4 mt-5">Our Job</h2>
-                            <div class="d-flex">
-                                <button class="btn btn-light rounded-circle me-2"><i
-                                        data-feather="chevron-left"></i></button>
-                                <button class="btn btn-light rounded-circle"><i data-feather="chevron-right"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="row flex-nowrap horizontal-scroll-container pb-3">
-                            <?php include_once "../components/JobCard.php" ?>
->>>>>>>>> Temporary merge branch 2
-                        </div>
-                    </div>
-
-                        <div class="row flex-nowrap horizontal-scroll-container pb-3">
-                            <?php include_once "../components/JobCard.php" ?>
-                        </div>
-                    </div>
-
-                    <?php include_once "../components/aiButton.php" ?>
+                <?php include_once "../components/aiButton.php" ?>
             </main>
             <footer class="footer-admin mt-auto footer-light">
                 <div class="container-xl px-4">
