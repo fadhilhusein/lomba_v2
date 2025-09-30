@@ -39,62 +39,39 @@ $email = $auth->getEmail();
         <?php include_once "../components/Sidenav.php" ?>w
         <div id="layoutSidenav_content">
             <main>
-                <!--card ads -daffa -->
-
-                <!DOCTYPE html>
-                <html lang="id">
-
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Hero Slider Pendek dan Berjarak</title>
-                    <link rel="stylesheet" href="styles.css">
-                </head>
-
-                <body>
-
-                    <div class="slider-container">
-
-                        <div class="slider-wrapper">
-
-                            <div class="slide-item"
-                                data-img-path="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
-                                <p class="slide-caption">Jelajahi Dunia Baru</p>
-                            </div>
-
-                            <div class="slide-item"
-                                data-img-path="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fit=crop&w=1200&h=450&q=80">
-                                <p class="slide-caption">Mulai Petualangan Anda</p>
-                            </div>
-
+                <div class="slider-container">
+                    <div class="slider-wrapper">
+                        <div class="slide-item"
+                            data-img-path="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                            <p class="slide-caption">Jelajahi Dunia Baru</p>
                         </div>
 
-                        <button class="slider-btn prev-btn">&#10094;</button>
-                        <button class="slider-btn next-btn">&#10095;</button>
-
+                        <div class="slide-item"
+                            data-img-path="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fit=crop&w=1200&h=450&q=80">
+                            <p class="slide-caption">Mulai Petualangan Anda</p>
+                        </div>
                     </div>
+                    <button class="slider-btn prev-btn">&#10094;</button>
+                    <button class="slider-btn next-btn">&#10095;</button>
+                </div>
 
-
-                    <!-- anakan card-->
-                    
-
-                    <!-- scroll card daffa-->
-                    <div class="container py-4">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h2 class="fw-bold ms-4 mt-5">Our Job</h2>
-                            <div class="d-flex">
-                                <button class="btn btn-light rounded-circle me-2"><i
-                                        data-feather="chevron-left"></i></button>
-                                <button class="btn btn-light rounded-circle"><i data-feather="chevron-right"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="row flex-nowrap horizontal-scroll-container pb-3">
-                            <?php include_once "../components/JobCard.php" ?>
+                <!-- scroll card daffa-->
+                <div class="container py-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="fw-bold ms-4 mt-5">Our Job</h2>
+                        <div class="d-flex">
+                            <button class="btn btn-light rounded-circle me-2"><i
+                                    data-feather="chevron-left"></i></button>
+                            <button class="btn btn-light rounded-circle"><i data-feather="chevron-right"></i></button>
                         </div>
                     </div>
 
-                    <?php include_once "../components/aiButton.php" ?>
+                    <div class="row flex-nowrap horizontal-scroll-container pb-3">
+                        <?php include_once "../components/JobCard.php" ?>
+                    </div>
+                </div>
+
+                <?php include_once "../components/aiButton.php" ?>
             </main>
             <footer class="footer-admin mt-auto footer-light">
                 <div class="container-xl px-4">
