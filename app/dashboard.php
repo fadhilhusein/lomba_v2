@@ -46,6 +46,10 @@ try {
     <link href="css/dashboard.css" rel="stylesheet" />
     <link href="css/custom.css" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <script data-search-pseudo-elements defer
         src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"
@@ -59,9 +63,9 @@ try {
     <div id="layoutSidenav">
         <?php include_once "../components/Sidenav.php" ?>
         <div id="layoutSidenav_content">
-            <main class="container-fluid px-lg-4 py-4">
+            <main class="container-fluid px-lg-4 py-4 ms-2" style="padding-left: 8px;">
                 <!-- Header Konten -->
-                <div class="d-flex align-items-center justify-content-between mb-4">
+                <div class="d-flex align-items-center justify-content-between mb-4 ms-1">
                     <div>
                         <h2 class="fw-bold">Dashboard Mahasiswa</h2>
                         <p class="text-muted-light mb-0">Selamat datang kembali, <?= $username ?>!</p>
@@ -73,7 +77,7 @@ try {
                 </div>
 
                 <!-- Kartu Statistik -->
-                <div class="row g-4 mb-4">
+                <div class="row g-4 mb-4 ">
                     <!-- Kartu 1: Proyek Selesai -->
                     <div class="col-md-6 col-xl-3">
                         <div class="card p-3">
