@@ -23,4 +23,16 @@ try {
 
 // Init auth
 $auth = new \Delight\Auth\Auth($pdo);
+
+// ---- Mengambil current URL Path
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'
+    || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+
+$host = $_SERVER['HTTP_HOST'];
+$uri = $_SERVER['REQUEST_URI'];
+
+$full_url = $protocol . $host . $uri;
+
+$urlLength = count(explode('/', $full_url));
+$lastURL = explode('/', $full_url)[$urlLength - 1];
 ?>

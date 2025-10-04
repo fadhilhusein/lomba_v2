@@ -21,6 +21,7 @@ try {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -47,262 +48,183 @@ try {
     <?php include_once "../components/Topbar.php" ?>
     <div id="layoutSidenav">
         <?php include_once "../components/Sidenav.php" ?>
+
         <div id="layoutSidenav_content">
-            <div class="container py-4 py-lg-5">
+            <main class="ci-page container py-4 py-lg-5">
 
-        <div class="row mb-4 align-items-center ms-1">
-            <div class="col-lg-8">
-                <div class="search-bar position-relative">
-                    <i class="bi bi-search search-icon"></i>
-                    <input type="text" class="form-control form-control-lg" placeholder="Cari proyek berdasarkan judul, deskripsi, atau skill...">
+                <!-- Toolbar -->
+                <div class="ci-toolbar">
+                    <div class="ci-search">
+                        <i class="bi bi-search ci-icon"></i>
+                        <input type="search" placeholder="Cari proyek berdasarkan judul, deskripsi, atau skill..." />
+                    </div>
+                    <select class="ci-filter form-select">
+                        <option selected>Semua Kategori</option>
+                        <option>Web Development</option>
+                        <option>Mobile Development</option>
+                        <option>Design</option>
+                        <option>Digital Marketing</option>
+                    </select>
                 </div>
-            </div>
-            <div class="col-lg-4 mt-3 mt-lg-0">
-                <div class="dropdown">
-                    <button class="btn btn-outline-secondary btn-lg dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Semua Kategori
-                    </button>
-                    <ul class="dropdown-menu w-100">
-                        <li><a class="dropdown-item" href="#">Web Development</a></li>
-                        <li><a class="dropdown-item" href="#">Mobile Development</a></li>
-                        <li><a class="dropdown-item" href="#">Design</a></li>
-                        <li><a class="dropdown-item" href="#">Digital Marketing</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
 
-        <div class="row g-3 g-md-4 mb-5 ms-1">
-            <div class="col-6 col-lg-3">
-                <div class="card stat-card total-proyek">
-                    <div class="card-body">
-                        <div class="icon-circle"><i class="bi bi-eye"></i></div>
-                        <div>
-                            <h6>Total Proyek</h6>
-                            <p>4</p>
-                        </div>
+                <!-- Statistik -->
+                <div class="ci-stats">
+                    <div class="ci-stat">
+                        <div class="ci-stat-title">Total Proyek</div>
+                        <div class="ci-stat-value">4</div>
+                    </div>
+                    <div class="ci-stat">
+                        <div class="ci-stat-title">Proyek Urgent</div>
+                        <div class="ci-stat-value">1</div>
+                    </div>
+                    <div class="ci-stat">
+                        <div class="ci-stat-title">Rata-rata Budget</div>
+                        <div class="ci-stat-value">Rp 3,2M</div>
+                    </div>
+                    <div class="ci-stat">
+                        <div class="ci-stat-title">Proyek Tersimpan</div>
+                        <div class="ci-stat-value">0</div>
                     </div>
                 </div>
-            </div>
-            <div class="col-6 col-lg-3">
-                <div class="card stat-card proyek-urgent">
-                    <div class="card-body">
-                        <div class="icon-circle"><i class="bi bi-clock"></i></div>
-                        <div>
-                            <h6>Proyek Urgent</h6>
-                            <p>1</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-lg-3">
-                <div class="card stat-card rata-rata-budget">
-                    <div class="card-body">
-                        <div class="icon-circle"><i class="bi bi-currency-dollar"></i></div>
-                        <div>
-                            <h6>Rata-rata Budget</h6>
-                            <p>Rp 3,2M</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-lg-3">
-                <div class="card stat-card proyek-tersimpan">
-                    <div class="card-body">
-                        <div class="icon-circle"><i class="bi bi-bookmark"></i></div>
-                        <div>
-                            <h6>Proyek Tersimpan</h6>
-                            <p>0</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="row g-4">
-            <div class="col-lg-6">
-                <div class="card project-card h-100">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div class="d-flex align-items-center gap-2">
-                                <span class="category-tag">Web Development</span>
-                                <span class="urgent-tag">Urgent</span>
+                <!-- Daftar Proyek -->
+                <div class="ci-grid">
+                    <!-- Card 1 -->
+                    <article class="ci-card">
+                        <div class="ci-card__body">
+                            <div class="ci-card__header">
+                                <span class="ci-badge ci-badge--cat">Web Development</span>
+                                <span class="ci-badge ci-badge--urgent">Urgent</span>
                             </div>
-                            <i class="bi bi-bookmark bookmark-icon"></i>
-                        </div>
-                        <h4 class="card-title">Pembuatan Website E-commerce untuk Toko Fashion</h4>
-                        <p class="card-text mb-3">Membutuhkan website e-commerce modern dengan fitur pembayaran online, manajemen inventory, dan dashboard admin yang user-friendly.</p>
-                        
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <span class="company-info">Boutique Zahra • Jakarta Selatan</span>
-                            <span class="rating"><i class="bi bi-star-fill"></i> 4.8</span>
-                        </div>
-                        
-                        <div class="d-flex flex-wrap gap-2 mb-4">
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">Payment Gateway</span>
-                            <span class="skill-tag">UI/UX Design</span>
-                        </div>
-
-                        <div class="row g-3 project-details mt-auto">
-                            <div class="col-6 col-sm-6"><i class="bi bi-currency-dollar me-2"></i>Rp 3.000.000 - 5.000.000</div>
-                            <div class="col-6 col-sm-6"><i class="bi bi-clock me-2"></i>30 hari</div>
-                            <div class="col-6 col-sm-6"><i class="bi bi-people me-2"></i>12 pelamar</div>
-                            <div class="col-6 col-sm-6"><i class="bi bi-calendar3 me-2"></i>2 hari yang lalu</div>
-                        </div>
-                    </div>
-                    <div class="card-footer bg-white border-0 p-3">
-                        <div class="d-flex gap-2">
-                            <button class="btn btn-primary w-100">Lamar Proyek</button>
-                            <button class="btn btn-view"><i class="bi bi-eye"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6">
-                <div class="card project-card h-100">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div class="d-flex align-items-center gap-2">
-                                <span class="category-tag">Design</span>
+                            <h3 class="ci-card__title">Pembuatan Website E-commerce untuk Toko Fashion</h3>
+                            <p>Membutuhkan website e-commerce modern dengan fitur pembayaran online, manajemen inventory, dan dashboard admin yang user-friendly.</p>
+                            <div class="ci-card__meta">
+                                <span class="ci-meta-dot">Boutique Zahra • Jakarta Selatan</span>
+                                <span><i class="bi bi-star-fill text-warning"></i> 4.8</span>
                             </div>
-                            <i class="bi bi-bookmark bookmark-icon"></i>
-                        </div>
-                        <h4 class="card-title">Desain Logo dan Brand Identity untuk Startup F&B</h4>
-                        <p class="card-text mb-3">Startup kuliner baru membutuhkan desain logo, brand guideline, dan materi marketing untuk launching produk minuman sehat.</p>
-                        
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <span class="company-info">Green Juice Co. • Bandung</span>
-                            <span class="rating"><i class="bi bi-star-fill"></i> 4.9</span>
-                        </div>
-                        
-                        <div class="d-flex flex-wrap gap-2 mb-4">
-                            <span class="skill-tag">Adobe Illustrator</span>
-                            <span class="skill-tag">Brand Design</span>
-                            <span class="skill-tag">Logo Design</span>
-                        </div>
-
-                        <div class="row g-3 project-details mt-auto">
-                            <div class="col-6 col-sm-6"><i class="bi bi-currency-dollar me-2"></i>Rp 1.500.000 - 2.500.000</div>
-                            <div class="col-6 col-sm-6"><i class="bi bi-clock me-2"></i>14 hari</div>
-                            <div class="col-6 col-sm-6"><i class="bi bi-people me-2"></i>8 pelamar</div>
-                            <div class="col-6 col-sm-6"><i class="bi bi-calendar3 me-2"></i>1 hari yang lalu</div>
-                        </div>
-                    </div>
-                    <div class="card-footer bg-white border-0 p-3">
-                        <div class="d-flex gap-2">
-                            <button class="btn btn-primary w-100">Lamar Proyek</button>
-                            <button class="btn btn-view"><i class="bi bi-eye"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="card project-card h-100">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div class="d-flex align-items-center gap-2">
-                                <span class="category-tag">Mobile Development</span>
+                            <div class="ci-tags">
+                                <span class="ci-tag">React</span>
+                                <span class="ci-tag">Node.js</span>
+                                <span class="ci-tag">Payment Gateway</span>
+                                <span class="ci-tag">UI/UX Design</span>
                             </div>
-                            <i class="bi bi-bookmark bookmark-icon"></i>
                         </div>
-                        <h4 class="card-title">Aplikasi Mobile Delivery untuk Warung Makan</h4>
-                        <p class="card-text mb-3">Warung makan tradisional ingin ekspansi dengan layanan delivery. Butuh aplikasi mobile untuk customer dan dashboard untuk admin.</p>
-                        
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <span class="company-info">Warung Bu Tini • Yogyakarta</span>
-                            <span class="rating"><i class="bi bi-star-fill"></i> 4.7</span>
-                        </div>
-                        
-                        <div class="d-flex flex-wrap gap-2 mb-4">
-                            <span class="skill-tag">Flutter</span>
-                            <span class="skill-tag">Firebase</span>
-                            <span class="skill-tag">Google Maps API</span>
-                            <span class="skill-tag">Payment Integration</span>
-                        </div>
-
-                        <div class="row g-3 project-details mt-auto">
-                            <div class="col-6 col-sm-6"><i class="bi bi-currency-dollar me-2"></i>Rp 4.000.000 - 6.000.000</div>
-                            <div class="col-6 col-sm-6"><i class="bi bi-clock me-2"></i>45 hari</div>
-                            <div class="col-6 col-sm-6"><i class="bi bi-people me-2"></i>15 pelamar</div>
-                            <div class="col-6 col-sm-6"><i class="bi bi-calendar3 me-2"></i>3 hari yang lalu</div>
-                        </div>
-                    </div>
-                    <div class="card-footer bg-white border-0 p-3">
-                        <div class="d-flex gap-2">
-                            <button class="btn btn-primary w-100">Lamar Proyek</button>
-                            <button class="btn btn-view"><i class="bi bi-eye"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="card project-card h-100">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div class="d-flex align-items-center gap-2">
-                                <span class="category-tag">Digital Marketing</span>
+                        <div class="ci-card__footer">
+                            <div class="ci-price">
+                                <span class="ci-range">Rp 3.000.000 - 5.000.000</span>
+                                <span class="ci-note">30 hari • 12 pelamar • 2 hari lalu</span>
                             </div>
-                            <i class="bi bi-bookmark bookmark-icon"></i>
+                            <button class="ci-btn">Lamar Proyek</button>
                         </div>
-                        <h4 class="card-title">Content Marketing dan Social Media Management</h4>
-                        <p class="card-text mb-3">UMKM produk skincare lokal membutuhkan strategi content marketing dan pengelolaan media sosial untuk meningkatkan brand awareness.</p>
-                        
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <span class="company-info">Glowing Skin ID • Surabaya</span>
-                            <span class="rating"><i class="bi bi-star-fill"></i> 4.6</span>
-                        </div>
-                        
-                        <div class="d-flex flex-wrap gap-2 mb-4">
-                            <span class="skill-tag">Content Writing</span>
-                            <span class="skill-tag">Social Media Strategy</span>
-                            <span class="skill-tag">Canva</span>
-                            <span class="skill-tag">Instagram Marketing</span>
-                        </div>
+                    </article>
 
-                        <div class="row g-3 project-details mt-auto">
-                            <div class="col-6 col-sm-6"><i class="bi bi-currency-dollar me-2"></i>Rp 2.000.000 - 3.000.000</div>
-                            <div class="col-6 col-sm-6"><i class="bi bi-clock me-2"></i>60 hari</div>
-                            <div class="col-6 col-sm-6"><i class="bi bi-people me-2"></i>6 pelamar</div>
-                            <div class="col-6 col-sm-6"><i class="bi bi-calendar3 me-2"></i>5 hari yang lalu</div>
+                    <!-- Card 2 -->
+                    <article class="ci-card">
+                        <div class="ci-card__body">
+                            <div class="ci-card__header">
+                                <span class="ci-badge ci-badge--cat">Design</span>
+                            </div>
+                            <h3 class="ci-card__title">Desain Logo dan Brand Identity untuk Startup F&B</h3>
+                            <p>Startup kuliner baru membutuhkan desain logo, brand guideline, dan materi marketing untuk launching produk minuman sehat.</p>
+                            <div class="ci-card__meta">
+                                <span class="ci-meta-dot">Green Juice Co. • Bandung</span>
+                                <span><i class="bi bi-star-fill text-warning"></i> 4.9</span>
+                            </div>
+                            <div class="ci-tags">
+                                <span class="ci-tag">Adobe Illustrator</span>
+                                <span class="ci-tag">Brand Design</span>
+                                <span class="ci-tag">Logo Design</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-footer bg-white border-0 p-3">
-                        <div class="d-flex gap-2">
-                            <button class="btn btn-primary w-100">Lamar Proyek</button>
-                            <button class="btn btn-view"><i class="bi bi-eye"></i></button>
+                        <div class="ci-card__footer">
+                            <div class="ci-price">
+                                <span class="ci-range">Rp 1.500.000 - 2.500.000</span>
+                                <span class="ci-note">14 hari • 8 pelamar • 1 hari lalu</span>
+                            </div>
+                            <button class="ci-btn">Lamar Proyek</button>
                         </div>
-                    </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="ci-card">
+                        <div class="ci-card__body">
+                            <div class="ci-card__header">
+                                <span class="ci-badge ci-badge--cat">Mobile Development</span>
+                            </div>
+                            <h3 class="ci-card__title">Aplikasi Mobile Delivery untuk Warung Makan</h3>
+                            <p>Warung makan tradisional ingin ekspansi dengan layanan delivery. Butuh aplikasi mobile untuk customer dan dashboard untuk admin.</p>
+                            <div class="ci-card__meta">
+                                <span class="ci-meta-dot">Warung Bu Tini • Yogyakarta</span>
+                                <span><i class="bi bi-star-fill text-warning"></i> 4.7</span>
+                            </div>
+                            <div class="ci-tags">
+                                <span class="ci-tag">Flutter</span>
+                                <span class="ci-tag">Firebase</span>
+                                <span class="ci-tag">Google Maps API</span>
+                                <span class="ci-tag">Payment Integration</span>
+                            </div>
+                        </div>
+                        <div class="ci-card__footer">
+                            <div class="ci-price">
+                                <span class="ci-range">Rp 4.000.000 - 6.000.000</span>
+                                <span class="ci-note">45 hari • 15 pelamar • 3 hari lalu</span>
+                            </div>
+                            <button class="ci-btn">Lamar Proyek</button>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="ci-card">
+                        <div class="ci-card__body">
+                            <div class="ci-card__header">
+                                <span class="ci-badge ci-badge--cat">Digital Marketing</span>
+                            </div>
+                            <h3 class="ci-card__title">Content Marketing dan Social Media Management</h3>
+                            <p>UMKM produk skincare lokal membutuhkan strategi content marketing dan pengelolaan media sosial untuk meningkatkan brand awareness.</p>
+                            <div class="ci-card__meta">
+                                <span class="ci-meta-dot">Glowing Skin ID • Surabaya</span>
+                                <span><i class="bi bi-star-fill text-warning"></i> 4.6</span>
+                            </div>
+                            <div class="ci-tags">
+                                <span class="ci-tag">Content Writing</span>
+                                <span class="ci-tag">Social Media Strategy</span>
+                                <span class="ci-tag">Canva</span>
+                                <span class="ci-tag">Instagram Marketing</span>
+                            </div>
+                        </div>
+                        <div class="ci-card__footer">
+                            <div class="ci-price">
+                                <span class="ci-range">Rp 2.000.000 - 3.000.000</span>
+                                <span class="ci-note">60 hari • 6 pelamar • 5 hari lalu</span>
+                            </div>
+                            <button class="ci-btn">Lamar Proyek</button>
+                        </div>
+                    </article>
                 </div>
-            </div>
-        </div>
 
-        <div class="text-center mt-5">
-            <button class="btn btn-outline-primary btn-load-more">Muat Lebih Banyak Proyek</button>
-        </div>
+                <!-- Load More -->
+                <div class="text-center mt-5">
+                    <button class="ci-btn ci-btn--ghost">Muat Lebih Banyak Proyek</button>
+                </div>
 
-    </div>
+            </main>
 
             <footer class="footer-admin mt-auto footer-light">
                 <div class="container-xl px-4">
                     <div class="row">
-                        <div class="col-md-6 small">Copyright &copy; Your Website 2021</div>
+                        <div class="col-md-6 small">Copyright &copy; CampusImpact 2025</div>
                         <div class="col-md-6 text-md-end small">
-                            <a href="#!">Privacy Policy</a>
-                            &middot;
-                            <a href="#!">Terms &amp; Conditions</a>
+                            <a href="#">Privacy Policy</a> &middot; <a href="#">Terms &amp; Conditions</a>
                         </div>
                     </div>
                 </div>
             </footer>
+
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/scripts.js"></script>
 </body>
+
 </html>

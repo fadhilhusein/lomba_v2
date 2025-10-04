@@ -22,15 +22,15 @@
                 <!-- Sidenav Menu Heading (Core)-->
                 <div class="sidenav-menu-heading">Core</div>
                 <!-- Sidenav Accordion (Dashboard)-->
-                <a class="nav-link" href="dashboard.php">
+                <a class="nav-link <?php echo $lastURL === "dashboard.php" ? "nav-active" : ""; ?>" href="dashboard.php">
                     <div class="nav-link-icon"><i class="ph ph-gauge" style="font-size: 18px;"></i></div>
                     Dashboards
                 </a>
-                <a class="nav-link" href="kategori.php">
+                <a class="nav-link <?php echo $lastURL === "kategori.php" ? "nav-active" : ""; ?>" href="kategori.php">
                     <div class="nav-link-icon"><i data-feather="grid"></i></div>
                     Kategori
                 </a>
-                <a class="nav-link" href="create.php">
+                <a class="nav-link <?php echo $lastURL === "create.php" ? "nav-active" : ""; ?>" href="create.php">
                     <div class="nav-link-icon"><i data-feather="plus-circle"></i></div>
                     Tambah Job
                 </a>

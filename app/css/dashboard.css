@@ -3,12 +3,10 @@
     --bs-primary: #8352FD;
     --bs-primary-rgb: 131, 82, 253;
     --bs-primary-light: #f1edff;
-    --bs-body-font-family: 'Inter', sans-serif;
     --bs-body-bg: #f8f9fa;
 }
 
 body {
-    font-family: var(--bs-body-font-family);
     background-color: var(--bs-body-bg);
     color: #495057;
 }

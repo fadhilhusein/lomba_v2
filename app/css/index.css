@@ -1,56 +1,235 @@
-.main-content-fadhil {
-  /* Memastikan konten terpusat memiliki lebar maksimum yang wajar di desktop */
-  max-width: 600px;
-  text-align: center;
+/* index.css — Landing page styles (scoped) */
+
+/* =========================================================
+   1) Override Primary ke Bootstrap Purple (sinkron sebelumnya)
+   ========================================================= */
+:root {
+  --bs-primary: #6f42c1;      /* purple */
+  --bs-primary-rgb: 111,66,193;
 }
 
-.main-title-fadhil {
-  /* Judul utama: besar, tebal, hitam */
-  font-size: 3.5rem; /* Ukuran besar */
-  font-weight: 900; /* Ekstra tebal */
-  color: #000;
-  line-height: 1.1;
+/* =========================================================
+   2) Tokens lokal (scoped via .ci-page / komponen .ci-*)
+   ========================================================= */
+.ci-page {
+  --ci-bg: #ffffff;
+  --ci-ink: #0f172a;
+  --ci-muted: #6b7280;
+  --ci-border: #e5e7eb;
+
+  --ci-surface: #fff;
+  --ci-surface-2: #f8fafc;
+
+  --ci-chip-bg: rgba(255, 255, 255, 0.185);
+  --ci-chip-text: white;
+
+  --ci-radius: 14px;
+  --ci-radius-lg: 18px;
+
+  color: var(--ci-ink);
+  background: var(--ci-bg);
 }
 
-/* Responsive font size for title on smaller screens */
-@media (max-width: 768px) {
-  .main-title-fadhil {
-    font-size: 2.5rem;
-  }
-}
+/* Header */
+.ci-header .nav-link:hover { color: var(--bs-primary); }
 
-.btn-black-custom-fadhil {
-  /* Kustomisasi tombol: sudut sangat membulat, latar hitam, teks putih */
-  background-color: #000;
+/* =========================================================
+   HERO
+   ========================================================= */
+.ci-hero {
+  min-height: 440px;
+  display: grid;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
   color: #fff;
-  border: 1px solid #000;
-  border-radius: 50px; /* Sudut sangat membulat */
-  padding: 10px 25px;
+}
+.ci-hero-media {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat;
+  filter: saturate(0.9) contrast(1.05) brightness(0.8);
+}
+.ci-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(9,9,11,.55) 0%, rgba(9,9,11,.35) 50%, rgba(9,9,11,.55) 100%);
+}
+.ci-hero-title {
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.05;
   font-weight: 700;
-  transition: background-color 0.3s, opacity 0.3s;
+  margin-bottom: 18px;
+  color: white;
 }
 
-.btn-black-custom-fadhil:hover {
-  background-color: #333; /* Sedikit lebih terang saat hover */
+/* Search bar */
+.ci-searchbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 720px;
+}
+.ci-searchbar .form-control {
+  height: 54px;
+  border-radius: var(--ci-radius);
+  padding-left: 48px;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(255,255,255,.15);
   color: #fff;
-  opacity: 0.9;
+  backdrop-filter: blur(6px);
+}
+.ci-searchbar .form-control::placeholder { color: rgba(255,255,255,.85); }
+.ci-searchbar .form-control:focus {
+  border-color: rgba(255,255,255,.6);
+  box-shadow: 0 0 0 4px rgba(var(--bs-primary-rgb), .25);
+}
+.ci-search-icon {
+  position: absolute; left: 14px; font-size: 18px; opacity: .9; z-index: 2; color: #fff;
+}
+.ci-search-btn {
+  height: 54px;
+  border-radius: var(--ci-radius);
 }
 
-.btn-group-custom-fadhil {
-  /* Tambahkan margin atas untuk memisahkan dari teks panduan */
-  margin-top: 10px;
+/* Trending chips */
+.ci-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--ci-chip-bg);
+  color: var(--ci-chip-text);
+  border: 1px solid rgba(var(--bs-primary-rgb), .14);
+  text-decoration: none;
+  font-weight: 500;
+}
+.ci-chip:hover { background: rgba(var(--bs-primary-rgb), .12); text-decoration: none; }
+
+/* Trusted dots (placeholder logos) */
+.ci-logo-dots {
+  width: 64px; height: 18px; border-radius: 9px;
+  background: rgba(255,255,255,.4);
 }
 
-.description-text-fadhil {
-  /* Warna teks deskripsi sedikit abu-abu agar tidak terlalu menonjol */
-  color: #4a4a4a;
-  font-size: 1.1rem;
-  margin-bottom: 25px; /* Jarak bawah yang cukup */
+/* =========================================================
+   Categories grid (pills)
+   ========================================================= */
+.ci-cat-grid {
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  gap: 12px;
+}
+@media (min-width: 768px) {
+  .ci-cat-grid { grid-template-columns: repeat(6,1fr); }
+}
+@media (min-width: 992px) {
+  .ci-cat-grid { grid-template-columns: repeat(9,1fr); }
+}
+.ci-cat {
+  display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;
+  background: #fff;
+  border: 1px solid var(--ci-border);
+  border-radius: 14px;
+  padding: 14px 10px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 14px rgba(2,6,23,.06);
+  transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.ci-cat i { font-size: 22px; color: var(--bs-primary); }
+.ci-cat span { font-size: 12.5px; text-align: center; font-weight: 600; }
+.ci-cat:hover {
+  transform: translateY(-2px);
+  border-color: rgba(var(--bs-primary-rgb), .35);
+  box-shadow: 0 10px 26px rgba(2,6,23,.1);
+  text-decoration: none;
 }
 
-.guide-text-fadhil {
-  color: #000;
-  font-weight: 700;
-  margin-top: 30px; /* Jarak atas untuk memisahkan dari deskripsi */
-  margin-bottom: 10px; /* Jarak bawah ke grup tombol */
+/* =========================================================
+   Popular services (cards scroller)
+   ========================================================= */
+.ci-card-row {
+  display: grid;
+  gap: 16px;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(220px, 1fr);
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+}
+.ci-service-card {
+  display: grid;
+  grid-template-rows: auto 150px;
+  background: #0f172a;
+  border-radius: 18px;
+  text-decoration: none;
+  position: relative;
+  color: #fff;
+  min-width: 220px;
+  overflow: hidden;
+}
+.ci-service-card .ci-pill {
+  display: inline-block;
+  margin: 12px 12px 0;
+  padding: 6px 10px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.ci-service-card .ci-thumb {
+  background: linear-gradient(135deg,
+              rgba(var(--bs-primary-rgb), .25) 0%,
+              rgba(255,255,255,.08) 100%),
+              url('https://images.unsplash.com/photo-1522071901873-411886a10004?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
+  margin: 8px;
+  border-radius: 14px;
+}
+.ci-service-card:hover { transform: translateY(-2px); text-decoration: none; color: white;}
+
+/* =========================================================
+   CTA banner
+   ========================================================= */
+.ci-cta {
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(120deg,
+              rgba(var(--bs-primary-rgb), .85) 0%,
+              rgba(236, 72, 153, .85) 100%);
+  box-shadow: 0 16px 40px rgba(2,6,23,.15);
+}
+.ci-cta-illustration {
+  height: 180px;
+  border-radius: 16px;
+  background:
+    radial-gradient(70% 70% at 30% 30%, rgba(255,255,255,.35), transparent),
+    linear-gradient(135deg, rgba(255,255,255,.35), rgba(255,255,255,.05));
+  border: 1px solid rgba(255,255,255,.4);
+}
+
+/* =========================================================
+   Footer links
+   ========================================================= */
+.ci-footer-links h6 { color: #0f172a; }
+.ci-footer-links a:hover { color: var(--bs-primary); }
+
+/* Utilities */
+.bg-primary-subtle { background-color: rgba(var(--bs-primary-rgb), .12) !important; }
+.text-primary-emphasis { color: var(--bs-primary) !important; }
+
+/* Hilangkan scrollbar di semua browser utama */
+
+/* Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: none; /* hilangkan scrollbar tapi masih bisa scroll */
+}
+
+/* Pastikan tidak muncul overflow pada body/html */
+html, body {
+  overflow-x: hidden;
 }

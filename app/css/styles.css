@@ -137,6 +137,8 @@
   --bs-link-hover-color: #b704cb;
   --bs-code-color: #e30059;
   --bs-highlight-bg: #fdeccc;
+  --bs-nav-link-margin-y: 0.25rem;
+  --bs-nav-link-margin-x: 0.5rem;
 }
 
 *,
@@ -4752,11 +4754,20 @@ textarea.form-control-lg {
   display: block;
   font-family: "Montserrat", sans-serif;
   padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+  margin: var(--bs-nav-link-margin-y) var(--bs-nav-link-margin-x);
   font-size: var(--bs-nav-link-font-size);
   font-weight: var(--bs-nav-link-font-weight);
   color: var(--bs-nav-link-color);
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
+.nav-link.nav-active {
+  border-radius: 0.35rem;
+  background-color: var(--bs-purple-soft);
+}
+.nav-link.nav-active .nav-link-icon i, .nav-link.nav-active .nav-link-icon svg {
+  color: var(--bs-secondary);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .nav-link {
     transition: none;
